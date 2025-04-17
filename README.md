@@ -1,3 +1,3 @@
-# TIC_TAK_TOE_PROJECT
+# TIC_TAC_TOE_PROJECT
 hello world 
  
