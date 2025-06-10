@@ -45,8 +45,6 @@ private:
 
 public:
 
-
-
     void get (const string &username, const string &password, const string &email) {
         UserName = username;
         PassWord = password;
