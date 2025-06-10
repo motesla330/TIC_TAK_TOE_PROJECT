@@ -31,6 +31,7 @@ string escapeJsonString(const std::string& input) {
     return output;
 }
 
+
 string HashingPassword(const string &PassWord) {
 
     unsigned char hash[SHA256_DIGEST_LENGTH];
@@ -44,7 +45,6 @@ string HashingPassword(const string &PassWord) {
 
     return string(hex_output);
 }
-
 
 
 class SignIn {
