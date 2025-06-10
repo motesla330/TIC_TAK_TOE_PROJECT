@@ -1,8 +1,0 @@
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/Tic_Tac_Test.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/list_install_components.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/install.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/install/local.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/Tic_Tac_Test_autogen_timestamp_deps.dir
-C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/CMakeFiles/Tic_Tac_Test_autogen.dir
