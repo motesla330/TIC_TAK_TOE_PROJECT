@@ -38,7 +38,7 @@
     <attribute name="title">
      <string>login</string>
     </attribute>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="usernameLineEdit">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -74,7 +74,7 @@
       <string>Login </string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="passwordLineEdit">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -88,6 +88,29 @@
      </property>
      <property name="placeholderText">
       <string>Enter Password </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>310</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>press to login </string>
+     </property>
+     <property name="text">
+      <string>exit</string>
      </property>
     </widget>
    </widget>
