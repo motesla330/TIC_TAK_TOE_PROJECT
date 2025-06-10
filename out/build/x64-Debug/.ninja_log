@@ -1,0 +1,8 @@
+# ninja log v5
+11	4933	7712062897697672	Tic_Tac_Test_autogen/timestamp	911fca20320abbb3
+11	4933	7712062897697672	Tic_Tac_Test_autogen/mocs_compilation.cpp	911fca20320abbb3
+11	4933	7712062897697672	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/Tic_Tac_Test_autogen/timestamp	911fca20320abbb3
+11	4933	7712062897697672	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Tic_Tac_Test/out/build/x64-Debug/Tic_Tac_Test_autogen/mocs_compilation.cpp	911fca20320abbb3
+4956	5188	7712062901320583	CMakeFiles/Tic_Tac_Test.dir/Board.cpp.obj	965a78a978644bfd
+4962	5189	7712062901320583	CMakeFiles/Tic_Tac_Test.dir/gamelogic.cpp.obj	21cef233eb894fb5
+4968	5613	7712062905561927	CMakeFiles/Tic_Tac_Test.dir/historymanager.cpp.obj	725f45817cf015e7
