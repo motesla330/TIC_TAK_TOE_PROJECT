@@ -147,7 +147,6 @@ public:
     void IsYou() {
         srand(time(0));
         VerificationCode = rand() % 10000; // Generate and store the code
-        string userName = "User"; // Example username, you can make this dynamic
         string apiKey = "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"; // <-- WARNING: Remove before production
         string fromEmail = "mahmoud.abdallah04@eng-st.cu.edu.eg";
         string toEmail = "mahmoudismailkn@gmail.com";
@@ -180,7 +179,7 @@ public:
         // Replace placeholders in the HTML content
         size_t pos = htmlContentTemplate.find("{USERNAME}");
         if (pos != std::string::npos) {
-            htmlContentTemplate.replace(pos, std::string("{USERNAME}").length(), userName);
+            htmlContentTemplate.replace(pos, std::string("{USERNAME}").length(), UserName);
         }
         pos = htmlContentTemplate.find("{VERIFICATION_CODE}");
         if (pos != std::string::npos) {
