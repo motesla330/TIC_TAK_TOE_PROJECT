@@ -9,7 +9,6 @@
 #include <chrono>  // For std::chrono::seconds, minutes
 #include <thread> // For std::this_thread::sleep_for
 
-
 using namespace std;
 
 string escapeJsonString(const std::string& input) {
@@ -32,6 +31,21 @@ string escapeJsonString(const std::string& input) {
     return output;
 }
 
+string HashingPassword(const string &PassWord) {
+
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256(reinterpret_cast<const unsigned char*>(PassWord.c_str()), PassWord.length(), hash);
+
+    char hex_output[2 * SHA256_DIGEST_LENGTH + 1];
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
+        sprintf(hex_output + (i * 2), "%02x", hash[i]);
+   }
+    hex_output[2 * SHA256_DIGEST_LENGTH] = '\0';  // null-terminate the string
+
+    return string(hex_output);
+}
+
+
 
 class SignIn {
 private:
@@ -45,32 +59,24 @@ private:
 
 public:
 
-    void get (const string &username, const string &password, const string &email) {
+    void GetNew (const string &username, const string &password, const string &email) {
         UserName = username;
         PassWord = password;
         Email = email;
     }
 
-    void give (string* &username , string* &hashpassword, string* &email) {
+    void GiveNew (string* &username , string* &hashpassword, string* &email) {
         username = &UserName;
         hashpassword = &HashedPassword;
         email = &Email;
     }
 
+    void Compare (const string &username, const string &password, const string &email) {
+        //
+    }
+
     void HashPassword() {
-
-        unsigned char hash[SHA256_DIGEST_LENGTH];
-        SHA256(reinterpret_cast<const unsigned char*>(PassWord.c_str()), PassWord.length(), hash);
-    
-        char hex_output[2 * SHA256_DIGEST_LENGTH + 1];
-        for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
-            sprintf(hex_output + (i * 2), "%02x", hash[i]);
-        }
-        hex_output[2 * SHA256_DIGEST_LENGTH] = '\0';  // null-terminate the string
-    
-        HashedPassword = string(hex_output);
-
-        cout << "SHA-256 Hash: " << HashedPassword << endl;
+        HashedPassword = HashingPassword(PassWord);
     }
     
     bool FieldsIsValid () {
