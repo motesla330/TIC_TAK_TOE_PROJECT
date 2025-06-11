@@ -6,12 +6,12 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow),
-    Board(),
-    gamelogic(board) {
+    board(),
+    logic(board) {
     ui->setupUi(this);
     setupBoardUI();
 
-    historymanager.startNewGame(Player::X);
+    historyManager.startNewGame(Player::X);
 }
 
 MainWindow::~MainWindow() {
@@ -33,22 +33,22 @@ void MainWindow::setupBoardUI() {
             connect(buttons[i][j], &QPushButton::clicked, [=]() {
                 handleButtonClick();  // Optional call
                 if (board.getCell(i, j) == ' ') {
-                    char symbol = gamelogic.getCurrentPlayer();
+                    char symbol = logic.getCurrentPlayer();
                     if (board.setCell(i, j, symbol)) {
                         updateButton(i, j, symbol);
-                        historymanager.recordMove(i, j,
+                        historyManager.recordMove(i, j,
                                                   symbol == 'X' ? Player::X : Player::O);
 
-                        if (gamelogic.checkWin(symbol)) {
+                        if (logic.checkWin(symbol)) {
                             showEndMessage(QString("Player %1 wins!").arg(symbol));
-                            historymanager.endCurrentGame(symbol == 'X' ? Player::X : Player::O);
+                            historyManager.endCurrentGame(symbol == 'X' ? Player::X : Player::O);
                             resetGame();
-                        } else if (gamelogic.isDraw()) {
+                        } else if (logic.isDraw()) {
                             showEndMessage("It's a draw!");
-                            historymanager.endCurrentGame(Player::None);
+                            historyManager.endCurrentGame(Player::None);
                             resetGame();
                         } else {
-                            gamelogic.switchPlayer();
+                            logic.switchPlayer();
                         }
                     }
                 }
@@ -61,7 +61,7 @@ void MainWindow::setupBoardUI() {
 
 
 void MainWindow::handleButtonClick() {
-    // placeholder – gamelogic handled directly in lambda in setupBoardUI
+    // placeholder – logic handled directly in lambda in setupBoardUI
 }
 
 void MainWindow::updateButton(int row, int col, char symbol) {
@@ -73,12 +73,12 @@ void MainWindow::showEndMessage(const QString &message) {
 }
 
 void MainWindow::resetGame() {
-    Board.resetBoard();
-    gamelogic.reset();
+    board.resetBoard();
+    logic.reset();
 
     for (int i = 0; i < 3; ++i)
         for (int j = 0; j < 3; ++j)
             buttons[i][j]->setText(" ");
 
-    historymanager.startNewGame(Player::X);
+    historyManager.startNewGame(Player::X);
 }
