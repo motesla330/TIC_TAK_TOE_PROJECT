@@ -2,9 +2,9 @@ name: Build and Test tictactoe
 
 on:
   push:
-    branches: [ main, dev, Game_Logic ]
+    branches: [ main, dev, Game_logic ]
   pull_request:
-    branches: [ main, dev, Game_Logic ]
+    branches: [ main, dev, Game_logic ]
 
 jobs:
   build:
@@ -20,12 +20,12 @@ jobs:
         sudo apt install -y qtbase5-dev qt5-qmake cmake g++
 
     - name: Configure with CMake
-      run: cmake -S Game_logic/tictactoe -B Game_logic/tictactoe/build
+      run: cmake -S game_logic/tictactoe -B game_logic/tictactoe/build
 
     - name: Build
-      run: cmake --build game_logic/tictactoe/Build
+      run: cmake --build game_logic/tictactoe/build
 
     - name: Run Tests (if you have any)
       run: |
-        cd game_logic/tictactoe/Build
+        cd game_logic/tictactoe/build
         ctest || echo "No tests found"
