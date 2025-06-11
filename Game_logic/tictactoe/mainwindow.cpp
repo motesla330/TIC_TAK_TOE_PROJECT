@@ -33,22 +33,22 @@ void MainWindow::setupBoardUI() {
             connect(buttons[i][j], &QPushButton::clicked, [=]() {
                 handleButtonClick();  // Optional call
                 if (board.getCell(i, j) == ' ') {
-                    char symbol = gamegamelogic.getCurrentPlayer();
+                    char symbol = gamelogic.getCurrentPlayer();
                     if (board.setCell(i, j, symbol)) {
                         updateButton(i, j, symbol);
                         historymanager.recordMove(i, j,
                                                   symbol == 'X' ? Player::X : Player::O);
 
-                        if (gamegamelogic.checkWin(symbol)) {
+                        if (gamelogic.checkWin(symbol)) {
                             showEndMessage(QString("Player %1 wins!").arg(symbol));
                             historymanager.endCurrentGame(symbol == 'X' ? Player::X : Player::O);
                             resetGame();
-                        } else if (gamegamelogic.isDraw()) {
+                        } else if (gamelogic.isDraw()) {
                             showEndMessage("It's a draw!");
                             historymanager.endCurrentGame(Player::None);
                             resetGame();
                         } else {
-                            gamegamelogic.switchPlayer();
+                            gamelogic.switchPlayer();
                         }
                     }
                 }
@@ -61,7 +61,7 @@ void MainWindow::setupBoardUI() {
 
 
 void MainWindow::handleButtonClick() {
-    // placeholder – gamegamelogic handled directly in lambda in setupBoardUI
+    // placeholder – gamelogic handled directly in lambda in setupBoardUI
 }
 
 void MainWindow::updateButton(int row, int col, char symbol) {
@@ -74,7 +74,7 @@ void MainWindow::showEndMessage(const QString &message) {
 
 void MainWindow::resetGame() {
     Board.resetBoard();
-    gamegamelogic.reset();
+    gamelogic.reset();
 
     for (int i = 0; i < 3; ++i)
         for (int j = 0; j < 3; ++j)
