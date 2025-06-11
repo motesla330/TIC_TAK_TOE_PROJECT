@@ -1,0 +1,30 @@
+name: Branch Push C++ Workflow
+
+on:
+  push:
+    branches:
+      - 'main' # <--- IMPORTANT: Change 'main' to your specific branch name (e.g., 'development', 'feature-branch')
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest # Good for C++ with g++ pre-installed
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4 # Downloads your code from the branch
+
+    # IMPORTANT: The following steps will still operate on a hardcoded file path
+    # If you push changes to OTHER files on this branch, this workflow will still
+    # try to compile and run 'src/your_main_program.cpp'.
+    # If you need to dynamically detect and run ANY C++ file that was pushed,
+    # the steps below would need to be much more complex (see explanation below).
+
+    - name: Compile C++ program
+      run: |
+        # Change 'src/your_main_program.cpp' to the actual path and name of the C++ file
+        # you want to compile and run when this branch is pushed to.
+        g++ src/your_main_program.cpp -o my_compiled_program -std=c++17 -Wall -Wextra
+
+    - name: Run C++ program
+      run: |
+        ./my_compiled_program
