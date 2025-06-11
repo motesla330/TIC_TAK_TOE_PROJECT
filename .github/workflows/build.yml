@@ -2,9 +2,9 @@ name: Build and Test tictactoe
 
 on:
   push:
-    branches: [ main, dev, Game_logic ]
+    branches: [ main, dev, Game_Logic ]
   pull_request:
-    branches: [ main, dev, Game_logic ]
+    branches: [ main, dev, Game_Logic ]
 
 jobs:
   build:
@@ -23,9 +23,9 @@ jobs:
       run: cmake -S Game_logic/tictactoe -B Game_logic/tictactoe/build
 
     - name: Build
-      run: cmake --build Game_logic/tictactoe/build
+      run: cmake --build game_logic/tictactoe/build
 
     - name: Run Tests (if you have any)
       run: |
-        cd Game_logic/tictactoe/build
+        cd Game_logic/tictactoe/Build
         ctest || echo "No tests found"
