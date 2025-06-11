@@ -1,18 +1,18 @@
-
-
 // C++ program to find the next optimal move for 
 // a player 
 #include<bits/stdc++.h>   
 using namespace std; 
-  
+
+char player = 'x', opponent = 'o',EMPTY = '_';
+const int MAX = 1000;
+const int MIN = -1000; 
 struct Move 
 { 
     int row, col; 
 }; 
-  
-char player = 'x', opponent = 'o',EMPTY = '_';
-const int MAX = 1000;
-const int MIN = -1000;  
+
+enum Difficulty { EASY, MEDIUM, HARD };
+   
 // This function returns true if there are moves 
 // remaining on the board. It returns false if 
 // there are no moves left to play. 
@@ -151,6 +151,49 @@ Move findBestMove(char board[3][3])
     return bestMove; 
 } 
 
+// Random move for easy difficulty
+Move findRandomMove(char board[3][3]) {
+    vector<Move> moves;
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            if (board[i][j] == EMPTY)
+                moves.push_back({i, j});
+    if (!moves.empty()) {
+        int idx = rand() % moves.size();
+        return moves[idx];
+    }
+    return {-1, -1};
+}
+
+// Medium: 50% best move, 50% random
+Move findMediumMove(char board[3][3]) {
+    if (rand() % 2 == 0)
+        return findBestMove(board);
+    else
+        return findRandomMove(board);
+}
+
+// Select move based on difficulty
+Move getAIMove(char board[3][3], Difficulty diff) {
+    switch (diff) {
+        case EASY: return findRandomMove(board);
+        case MEDIUM: return findMediumMove(board);
+        case HARD: return findBestMove(board);
+        default: return findBestMove(board);
+    }
+}
+Difficulty selectDifficulty() {
+    int choice;
+    cout << "Select AI Difficulty:\n1. Easy\n2. Medium\n3. Hard\nChoice: ";
+    cin >> choice;
+    switch (choice) {
+        case 1: return EASY;
+        case 2: return MEDIUM;
+        case 3: return HARD;
+        default: cout << "Invalid, defaulting to Hard.\n"; return HARD;
+    }
+}
+
 int main() {
     char board[3][3] = {
         { '_', '_', '_' },
@@ -160,6 +203,8 @@ int main() {
 
     cout << "Welcome to Tic Tac Toe!" << endl;
     cout << "You are 'o' and AI is 'x'." << endl;
+
+    Difficulty diff = selectDifficulty();
 
     int turn = 0; // 0 for player, 1 for AI
     while (true) {
@@ -199,13 +244,12 @@ int main() {
         } else {
             // AI's turn
             cout << "AI is making its move..." << endl;
-            Move bestMove = findBestMove(board);
-            board[bestMove.row][bestMove.col] = player;
+            Move aiMove = getAIMove(board, diff);
+            if (aiMove.row != -1 && aiMove.col != -1)
+                board[aiMove.row][aiMove.col] = player;
             turn = 0;
         }
     }
 
     return 0;
 }
-
-
