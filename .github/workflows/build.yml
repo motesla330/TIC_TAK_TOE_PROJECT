@@ -23,7 +23,7 @@ jobs:
       run: cmake -S Game_logic/tictactoe -B Game_logic/tictactoe/build
 
     - name: Build
-      run: cmake --build game_logic/tictactoe/build
+      run: cmake --build Game_logic/tictactoe/build
 
     - name: Run Tests (if you have any)
       run: |
