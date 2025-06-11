@@ -3,7 +3,7 @@ name: Specific C++ File Workflow
 on:
   push:
     paths:
-      - 'F:\Data Structure Project\TIC_TAK_TOE_PROJECT\Authentication & session management\Authentication.cpp' # <--- IMPORTANT: Change this to your C++ file's actual path and name (e.g., 'src/main.cpp')
+      - 'TIC_TAK_TOE_PROJECT\Authentication & session management\Authentication.cpp' # <--- IMPORTANT: Change this to your C++ file's actual path and name (e.g., 'src/main.cpp')
 
 jobs:
   build-and-run:
