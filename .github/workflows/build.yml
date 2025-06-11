@@ -2,9 +2,9 @@ name: Build and Test tictactoe
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main, dev, Game_Logic ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main, dev, Game_Logic ]
 
 jobs:
   build:
