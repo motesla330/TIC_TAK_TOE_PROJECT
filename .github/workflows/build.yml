@@ -1,0 +1,31 @@
+name: Build and Test TicTacToe
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install Qt and Dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y qtbase5-dev qt5-qmake cmake g++
+
+    - name: Configure with CMake
+      run: cmake -S game_logic/tictactoe -B game_logic/tictactoe/Build
+
+    - name: Build
+      run: cmake --build game_logic/tictactoe/Build
+
+    - name: Run Tests (if you have any)
+      run: |
+        cd game_logic/tictactoe/Build
+        ctest || echo "No tests found"

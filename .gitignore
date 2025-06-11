@@ -1,2 +1,7 @@
 .vscode
 *.exe
+# Build artifacts
+game_logic/tictactoe/Build/
+
+# VS Code settings
+.vscode/
