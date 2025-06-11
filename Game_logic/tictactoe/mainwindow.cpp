@@ -6,7 +6,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow),
-    board(),
+    Board(),
     logic(board) {
     ui->setupUi(this);
     setupBoardUI();
@@ -73,7 +73,7 @@ void MainWindow::showEndMessage(const QString &message) {
 }
 
 void MainWindow::resetGame() {
-    board.resetBoard();
+    Board.resetBoard();
     logic.reset();
 
     for (int i = 0; i < 3; ++i)
