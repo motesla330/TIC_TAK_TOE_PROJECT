@@ -1,4 +1,4 @@
-name: Build and Test TicTacToe
+name: Build and Test tictactoe
 
 on:
   push:
