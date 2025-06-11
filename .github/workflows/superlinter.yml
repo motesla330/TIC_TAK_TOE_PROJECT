@@ -4,53 +4,61 @@ on:
   push:
     paths:
       - 'Authentication.cpp'
-      - 'src/Authentication.cpp' # Example: if it's in a subdirectory
-      - 'include/Authentication.h' # Example: if you also want to trigger on header changes
+      - 'src/Authentication.cpp'
+      - 'include/Authentication.h'
     branches:
-      - main # Or whatever your main development branch is (e.g., master, develop)
+      - main
       - develop
 
 jobs:
   build_and_test:
-    runs-on: ubuntu-latest # Or windows-latest, macos-latest depending on your needs
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4 # Action to check out your code
+      uses: actions/checkout@v4 # This step has 'uses' - GOOD
 
     - name: Set up C++ environment (if needed)
-      # Example: For a C++ project, you might need specific compilers or tools
-      # uses: The tool you want to use
-      # run: sudo apt-get update && sudo apt-get install -y build-essential
+      # Scenario 1: Missing 'run:'
+      # If you had:
+      # - name: Set up C++ environment (if needed)
+      #   # <--- Nothing here, this would cause the error
+
+      # FIX: Add 'run:' to execute commands
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential
 
     - name: Compile Authentication.cpp (example)
+      # Scenario 2: Missing 'run:' (or 'uses:' if you had a custom action)
+      # If you had:
+      # - name: Compile Authentication.cpp (example)
+      #   # <--- Nothing here, this would cause the error
+
+      # FIX: Add 'run:' to execute commands
       run: |
-        # Replace with your actual compile command
-        # g++ Authentication.cpp -o auth_app
-        echo "Compiling Authentication.cpp..."
-        # Add your actual compilation commands here.
-        # For a more complex project, you'd use your build system (e.g., Make, CMake, Bazel)
-        # For example, if you have a Makefile:
-        # make all
+        g++ Authentication.cpp -o auth_app
 
     - name: Run tests (example)
+      # Scenario 3: Incorrect Indentation
+      # If 'run:' was indented incorrectly:
+      # - name: Run tests (example)
+      #    run: | # Notice the extra space or incorrect alignment
+      #      ./auth_app --test
+      # This could also lead to the error if GitHub Actions can't parse it as part of the step.
+
+      # FIX: Ensure proper 2-space indentation
       run: |
-        # Replace with your actual test commands
-        # ./auth_app --test
-        echo "Running tests for Authentication.cpp..."
-        # Add your actual test commands here.
-        # For example, if you have a test runner:
-        # ./my_tests
+        ./auth_app --test
 
     - name: Deploy (example - CD part)
-      # This part is highly dependent on your deployment target.
-      # You might use an action to deploy to AWS, Azure, GCP, Heroku, etc.
-      # Or run custom scripts to deploy.
-      # This step will only run if previous steps succeed.
-      if: success() && github.ref == 'refs/heads/main' # Only deploy from main branch on success
+      if: success() && github.ref == 'refs/heads/main'
+      # Scenario 4: Typos
+      # If you wrote 'runs:' instead of 'run:'
+      # runs: |
+      #   echo "Deploying..."
+      # This would also cause the error because 'runs' is not a valid key for a step.
+
+      # FIX: Correct the typo to 'run:'
       run: |
         echo "Deploying..."
-        # Add your deployment commands here.
-        # For instance, if deploying to an S3 bucket:
-        # aws s3 sync . s3://your-bucket-name --delete
-        # Or triggering another deployment system
