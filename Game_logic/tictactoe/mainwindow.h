@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QGridLayout>
-#include "Board.h"
+#include "board.h"
 #include "GameLogic.h"
 #include "HistoryManager.h"
 
