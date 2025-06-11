@@ -1,0 +1,39 @@
+name: Specific C++ File Workflow
+
+on:
+  push:
+    paths:
+      - 'F:\Data Structure Project\TIC_TAK_TOE_PROJECT\Authentication & session management\Authentication.cpp' # <--- IMPORTANT: Change this to your C++ file's actual path and name (e.g., 'src/main.cpp')
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest # ubuntu-latest comes with g++ pre-installed
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      # This action downloads your repository's code onto the runner.
+
+    - name: Install C++ dependencies (if any)
+      run: |
+        # Use apt-get for installing system-level libraries if your project needs them.
+        # For example, to install libboost-dev:
+        # sudo apt-get update
+        # sudo apt-get install -y libboost-dev
+        # If your project uses a package manager like Conan or vcpkg, install and use it here.
+        echo "No specific C++ dependencies being installed via apt-get in this example."
+
+    - name: Check and Compile C++ code with warnings
+      # This step compiles your C++ file and enables various warnings for code checking.
+      # Replace `g++` with `clang++` if you prefer Clang.
+      # `-Wall`, `-Wextra`, `-Werror` are common warning flags.
+      # `-std=c++17` specifies the C++ standard. Adjust as needed (e.g., c++11, c++20).
+      # `-o specific_program` names the output executable.
+      run: |
+        g++ path/to/your/specific_file.cpp -o specific_program -Wall -Wextra -Werror -std=c++17
+      # If compilation fails due to warnings or errors, this step will fail, and the workflow will stop.
+
+    - name: Run the specific C++ program
+      # This step executes the compiled program.
+      run: |
+        ./specific_program # Executes the program created in the previous step
