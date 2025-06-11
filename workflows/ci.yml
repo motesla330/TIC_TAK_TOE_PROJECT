@@ -1,0 +1,24 @@
+# .github/workflows/ci.yml
+
+name: C++ Build for game_logic
+
+on:
+  push:
+    branches:
+      - game_logic
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install build tools
+        run: sudo apt-get install g++ make
+
+      - name: Build the project
+        run: |
+          g++ -std=c++17 -o tic_tac_toe main.cpp  # Adjust to your actual main file
+          ./tic_tac_toe || true                   # Run the program (optional)
