@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 string escapeJsonString(const std::string& input) {
     string output;
     for (char c : input) {
