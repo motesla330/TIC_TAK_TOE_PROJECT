@@ -71,8 +71,27 @@ public:
         email = &Email;
     }
 
-    void Compare (const string &username, const string &password, const string &email) {
-        //
+    void Compare (const string &username, const string &password, const bool &IsHere) {
+        int i = 0;
+        while (i <= 3 || IsHere)
+        {
+            if (UserName == username && HashedPassword == password) {
+                cout << "Welcome " << UserName << endl;
+                return;
+            } else {
+                cout << "Wrong username or password, try again" << endl;
+                cout << "Enter username: ";
+                cin >> UserName;
+                cout << "Enter password: ";
+                cin >> PassWord;
+            }
+            i++;
+        }
+
+        if (i > 3) {
+            cout << "You have exceeded the maximum number of attempts, please try again later." << endl;
+            exit(0);
+        }
     }
 
     void HashPassword() {
