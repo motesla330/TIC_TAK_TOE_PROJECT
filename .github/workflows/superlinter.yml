@@ -1,30 +1,56 @@
-name: Branch Push C++ Workflow
+name: CI for Authentication.cpp
 
 on:
   push:
+    paths:
+      - 'Authentication.cpp'
+      - 'src/Authentication.cpp' # Example: if it's in a subdirectory
+      - 'include/Authentication.h' # Example: if you also want to trigger on header changes
     branches:
-      - 'main' # <--- IMPORTANT: Change 'main' to your specific branch name (e.g., 'development', 'feature-branch')
+      - main # Or whatever your main development branch is (e.g., master, develop)
+      - develop
 
 jobs:
-  build-and-run:
-    runs-on: ubuntu-latest # Good for C++ with g++ pre-installed
+  build_and_test:
+    runs-on: ubuntu-latest # Or windows-latest, macos-latest depending on your needs
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4 # Downloads your code from the branch
+      uses: actions/checkout@v4 # Action to check out your code
 
-    # IMPORTANT: The following steps will still operate on a hardcoded file path
-    # If you push changes to OTHER files on this branch, this workflow will still
-    # try to compile and run 'src/your_main_program.cpp'.
-    # If you need to dynamically detect and run ANY C++ file that was pushed,
-    # the steps below would need to be much more complex (see explanation below).
+    - name: Set up C++ environment (if needed)
+      # Example: For a C++ project, you might need specific compilers or tools
+      # uses: The tool you want to use
+      # run: sudo apt-get update && sudo apt-get install -y build-essential
 
-    - name: Compile C++ program
+    - name: Compile Authentication.cpp (example)
       run: |
-        # Change 'src/your_main_program.cpp' to the actual path and name of the C++ file
-        # you want to compile and run when this branch is pushed to.
-        g++ src/your_main_program.cpp -o my_compiled_program -std=c++17 -Wall -Wextra
+        # Replace with your actual compile command
+        # g++ Authentication.cpp -o auth_app
+        echo "Compiling Authentication.cpp..."
+        # Add your actual compilation commands here.
+        # For a more complex project, you'd use your build system (e.g., Make, CMake, Bazel)
+        # For example, if you have a Makefile:
+        # make all
 
-    - name: Run C++ program
+    - name: Run tests (example)
       run: |
-        ./my_compiled_program
+        # Replace with your actual test commands
+        # ./auth_app --test
+        echo "Running tests for Authentication.cpp..."
+        # Add your actual test commands here.
+        # For example, if you have a test runner:
+        # ./my_tests
+
+    - name: Deploy (example - CD part)
+      # This part is highly dependent on your deployment target.
+      # You might use an action to deploy to AWS, Azure, GCP, Heroku, etc.
+      # Or run custom scripts to deploy.
+      # This step will only run if previous steps succeed.
+      if: success() && github.ref == 'refs/heads/main' # Only deploy from main branch on success
+      run: |
+        echo "Deploying..."
+        # Add your deployment commands here.
+        # For instance, if deploying to an S3 bucket:
+        # aws s3 sync . s3://your-bucket-name --delete
+        # Or triggering another deployment system
