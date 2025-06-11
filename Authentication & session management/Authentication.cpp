@@ -31,6 +31,7 @@ string escapeJsonString(const std::string& input) {
     return output;
 }
 
+
 class Authentication {
 private:
     string UserName;
