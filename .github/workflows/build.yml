@@ -12,20 +12,35 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4  # Updated to v4
 
-    - name: Install Qt and Dependencies
+    - name: Install Dependencies
       run: |
         sudo apt update
-        sudo apt install -y qtbase5-dev qt5-qmake cmake g++
+        sudo apt install -y qtbase5-dev qt5-qmake cmake g++ build-essential
+        sudo apt install -y libgl1-mesa-dev  # OpenGL dependency
+
+    - name: Verify Source Files
+      run: |
+        ls -la Game_logic/tictactoe/
+        echo "Checking for Board.h..."
+        [ -f Game_logic/tictactoe/Board.h ] || exit 1
 
     - name: Configure with CMake
-      run: cmake -S Game_logic/tictactoe -B Game_logic/tictactoe/build
+      working-directory: Game_logic/tictactoe
+      run: |
+        mkdir -p build
+        cmake -B build -S .
 
     - name: Build
-      run: cmake --build Game_logic/tictactoe/build
+      working-directory: Game_logic/tictactoe/build
+      run: cmake --build . --verbose  # Added verbose flag for better debugging
 
-    - name: Run Tests (if you have any)
+    - name: Run Tests
+      working-directory: Game_logic/tictactoe/build
       run: |
-        cd Game_logic/tictactoe/Build
-        ctest || echo "No tests found"
+        if [ -f "CTestTestfile.cmake" ]; then
+          ctest --output-on-failure
+        else
+          echo "No tests found"
+        fi
