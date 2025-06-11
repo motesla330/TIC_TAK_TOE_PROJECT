@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QGridLayout>
-#include "Game_logic/tictactoe/Board.h"
+#include "Board.h"
 #include "GameLogic.h"
 #include "HistoryManager.h"
 
