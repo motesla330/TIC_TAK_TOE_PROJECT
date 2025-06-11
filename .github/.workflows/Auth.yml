@@ -1,13 +1,6 @@
 name: C++ CI/CD
 
-on:
-  push:
-    branches:
-      - main  # Trigger on pushes to the main branch
-  pull_request:
-    branches:
-      - main  # Trigger on pull requests to the main branch
-
+on: push
 jobs:
   build_and_test:
     runs-on: ubuntu-latest # Use the latest Ubuntu environment
