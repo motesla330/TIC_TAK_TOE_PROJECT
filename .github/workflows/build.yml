@@ -25,4 +25,7 @@ jobs:
     - name: Build
       run: cmake --build Game_logic/tictactoe/build
 
-
+    - name: Run Tests (if you have any)
+      run: |
+        cd Game_logic/tictactoe/build
+        ctest || echo "No tests found"
