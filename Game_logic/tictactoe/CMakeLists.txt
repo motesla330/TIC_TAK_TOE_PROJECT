@@ -18,8 +18,8 @@ set(PROJECT_SOURCES
     mainwindow.h
     mainwindow.ui
 
-    board.cpp
-    board.h
+    Board.cpp
+    Board.h
     gamelogic.cpp
     gamelogic.h
     historymanager.cpp
