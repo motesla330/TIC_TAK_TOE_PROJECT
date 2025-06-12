@@ -81,3 +81,30 @@ install(TARGETS tictactoe
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(tictactoe)
 endif()
+
+# Enable testing
+enable_testing()
+
+# Add GoogleTest
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+)
+FetchContent_MakeAvailable(googletest)
+
+# Add test executable
+add_executable(tictactoe_tests
+    tests/test_gamelogic.cpp
+    tictactoe/GameLogic.cpp
+    tictactoe/Board.cpp
+)
+
+# Link libraries
+target_link_libraries(tictactoe_tests
+  gtest_main
+)
+
+# Add to CTest
+include(GoogleTest)
+gtest_discover_tests(tictactoe_tests)
