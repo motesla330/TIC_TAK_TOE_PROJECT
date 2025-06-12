@@ -82,29 +82,56 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(tictactoe)
 endif()
 
-# Enable testing
-enable_testing()
+cmake_minimum_required(VERSION 3.14)
+project(tictactoe)
 
-# Add GoogleTest
+set(CMAKE_CXX_STANDARD 17)
+
+# Add source files
+set(SOURCES
+    Board.cpp
+    gamelogic.cpp
+    historymanager.cpp
+    mainwindow.cpp
+    main.cpp
+)
+
+set(HEADERS
+    Board.h
+    gamelogic.h
+    historymanager.h
+    mainwindow.h
+)
+
+# Main executable
+add_executable(tictactoe ${SOURCES} ${HEADERS})
+
+# ==========================
+# GoogleTest Section
+# ==========================
+# Download and add googletest
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
 )
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
+
+enable_testing()
 
 # Add test executable
 add_executable(tictactoe_tests
-    tests/test_gamelogic.cpp
-    tictactoe/GameLogic.cpp
-    tictactoe/Board.cpp
+    Tests/test_gamelogic.cpp
 )
 
-# Link libraries
 target_link_libraries(tictactoe_tests
-  gtest_main
+    gtest_main
 )
 
-# Add to CTest
+# Include dirs for test target
+target_include_directories(tictactoe_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
 include(GoogleTest)
 gtest_discover_tests(tictactoe_tests)
