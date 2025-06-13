@@ -5,6 +5,7 @@
 #include <chrono>
 #include <iomanip>
 #include <unordered_map>
+#include <optional>
 
 using namespace std;
 
@@ -76,9 +77,22 @@ public:
         Duration duration) {
         return tp + duration;
     }
+
     void print_session_data() const {
         cout << "Token: " << Token << endl;
         cout << "User ID: " << UserId << endl;
+    }
+
+    optional<std::chrono::minutes> check_expiration(
+        const std::chrono::system_clock::time_point& expiry_time) 
+    {
+        auto now = std::chrono::system_clock::now();
+        
+        if (now >= expiry_time) {
+            return std::nullopt; // Session expired
+        }
+        
+        return std::chrono::duration_cast<std::chrono::minutes>(expiry_time - now);
     }
 
 };
@@ -86,20 +100,46 @@ public:
 int main() {
     SessionManager session;
 
-    string username = "TestUser";
+    // Simulate a login
+    string username = "PlayerOne";
     session.generate_uuid_v4();
     session.generate_user_id(username);
 
-    auto current_time = SessionManager::now();
-    auto future_time = SessionManager::add_time(current_time, chrono::hours(1));
+    // Get and display current time
+    auto now = SessionManager::now();
+    cout << "Current Time: " << SessionManager::time_to_string(now) << endl;
 
-    cout << "Current time: " << SessionManager::time_to_string(current_time) << endl;
-    cout << "Time after 1 hour: " << SessionManager::time_to_string(future_time) << endl;
+    // Set expiry time 10 minutes into the future
+    auto expiry = SessionManager::add_time(now, chrono::minutes(10));
+    cout << "Session Expiry Time: " << SessionManager::time_to_string(expiry) << endl;
 
+    // Print session data
     session.print_session_data();
+
+    // Check time until expiration
+    auto time_left = session.check_expiration(expiry);
+    if (time_left) {
+        cout << "Session is valid. Time until expiration: " 
+             << time_left.value().count() << " minute(s)" << endl;
+    } else {
+        cout << "Session expired." << endl;
+    }
+
+    // Simulate expired session by checking an expiry time in the past
+    auto past_time = SessionManager::add_time(now, chrono::minutes(-5));
+    auto expired_check = session.check_expiration(past_time);
+    if (expired_check) {
+        cout << "Time until expiration (should not happen): " 
+             << expired_check.value().count() << " minute(s)" << endl;
+    } else {
+        cout << "Correctly detected expired session (past time)." << endl;
+    }
 
     return 0;
 }
+
+
+
 
 
 //g++ SessionManager_DUT.cpp -o session_Manager.exe
