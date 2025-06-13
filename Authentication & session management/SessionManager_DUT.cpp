@@ -69,54 +69,77 @@ class SessionManager {
     std::cout << "User ID: " << user_id_ << std::endl;
   }
 
-  std::optional<std::chrono::minutes> CheckExpiration(
-      const std::chrono::system_clock::time_point& expiry_time) {
-    auto now = std::chrono::system_clock::now();
+std::optional<std::chrono::minutes> CheckExpiration(
+    const std::chrono::system_clock::time_point& reference_time,
+    bool updateTime)
+{
+    std::chrono::system_clock::time_point current_time;
 
-    if (now >= expiry_time) {
-      return std::nullopt;
+    if (updateTime) {
+        // Use the passed reference time as the current time
+        current_time = reference_time;
+    } else {
+        // Otherwise use the system's current time
+        current_time = std::chrono::system_clock::now();
     }
 
-    return std::chrono::duration_cast<std::chrono::minutes>(expiry_time - now);
-  }
+    // Expiry is always 30 minutes after reference time
+    auto expiry_time = reference_time + std::chrono::minutes(30);
+
+    if (current_time >= expiry_time) {
+        return std::nullopt;  // Session expired
+    }
+
+    return std::chrono::duration_cast<std::chrono::minutes>(expiry_time - current_time);
+}
 };
 
 int main() {
-  SessionManager session;
+    SessionManager session;
 
-  std::string username = "PlayerOne";
-  session.GenerateUuidV4();
-  session.GenerateUserId(username);
+    // 1. Generate a UUID and User ID
+    session.GenerateUuidV4();
+    session.GenerateUserId("PlayerOne");
 
-  auto now = SessionManager::Now();
-  std::cout << "Current Time: " << SessionManager::TimeToString(now)
-            << std::endl;
+    // 2. Print the generated session data
+    session.PrintSessionData();
 
-  auto expiry = SessionManager::AddTime(now, std::chrono::minutes(10));
-  std::cout << "Session Expiry Time: " << SessionManager::TimeToString(expiry)
-            << std::endl;
+    // 3. Simulate session expiration check
 
-  session.PrintSessionData();
+    // Current time
+    auto now = SessionManager::Now();
+    std::cout << "Now: " << SessionManager::TimeToString(now) << std::endl;
 
-  auto time_left = session.CheckExpiration(expiry);
-  if (time_left) {
-    std::cout << "Session is valid. Time until expiration: "
-              << time_left.value().count() << " minute(s)" << std::endl;
-  } else {
-    std::cout << "Session expired." << std::endl;
-  }
+    // 3a. Check expiration using simulated time 10 minutes in the future
+    auto simulated_future = SessionManager::AddTime(now, std::chrono::minutes(10));
+    auto result1 = session.CheckExpiration(simulated_future, true);
+    std::cout << "[Simulated Future (+10 min), updateTime = true] -> ";
+    if (result1) {
+        std::cout << "Session valid. Time left: " << result1.value().count() << " minutes\n";
+    } else {
+        std::cout << "Session expired.\n";
+    }
 
-  auto past_time = SessionManager::AddTime(now, std::chrono::minutes(-5));
-  auto expired_check = session.CheckExpiration(past_time);
-  if (expired_check) {
-    std::cout << "Time until expiration (should not happen): "
-              << expired_check.value().count() << " minute(s)" << std::endl;
-  } else {
-    std::cout << "Correctly detected expired session (past time)."
-              << std::endl;
-  }
+    // 3b. Check expiration using system time (should still be valid)
+    auto result2 = session.CheckExpiration(now, false);
+    std::cout << "[System Time, updateTime = false] -> ";
+    if (result2) {
+        std::cout << "Session valid. Time left: " << result2.value().count() << " minutes\n";
+    } else {
+        std::cout << "Session expired.\n";
+    }
 
-  return 0;
+    // 3c. Simulate expired session (reference time 31 minutes ago)
+    auto past_time = SessionManager::AddTime(now, -std::chrono::minutes(31));
+    auto result3 = session.CheckExpiration(past_time, true);
+    std::cout << "[Past (-31 min), updateTime = true] -> ";
+    if (result3) {
+        std::cout << "Session valid. Time left: " << result3.value().count() << " minutes\n";
+    } else {
+        std::cout << "Session expired.\n";
+    }
+
+    return 0;
 }
 
 
