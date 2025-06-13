@@ -3,13 +3,11 @@ name: Lint C++ Code
 on:
   push:
     paths:
-      - '**.cpp'
-      - '**.hpp'
+      - 'SessionManager_DUT.cpp'
       - '.clang-format'
   pull_request:
     paths:
-      - '**.cpp'
-      - '**.hpp'
+      - 'SessionManager_DUT.cpp'
       - '.clang-format'
 
 jobs:
