@@ -1,3 +1,4 @@
+// Copyright [year] <MahmoudIsmail>
 #include <chrono>
 #include <iomanip>
 #include <iostream>
@@ -22,7 +23,7 @@ class SessionManager {
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 15);
 
-    const char* hex_chars = "0123456789abcdef";
+    const char *hex_chars = "0123456789abcdef";
     std::stringstream ss;
 
     for (int i = 0; i < 36; i++) {
@@ -39,7 +40,7 @@ class SessionManager {
     token_ = ss.str();
   }
 
-  void GenerateUserId(const std::string& username) {
+  void GenerateUserId(const std::string &username) {
     std::string combined = "TicTacToeSalt42_" + username;
     size_t hash = std::hash<std::string>{}(combined);
     unsigned int user_id = static_cast<unsigned int>(hash % 1000000);
@@ -50,8 +51,8 @@ class SessionManager {
     return std::chrono::system_clock::now();
   }
 
-  static std::string TimeToString(
-      const std::chrono::system_clock::time_point& tp) {
+  static std::string
+  TimeToString(const std::chrono::system_clock::time_point &tp) {
     auto in_time_t = std::chrono::system_clock::to_time_t(tp);
     std::stringstream ss;
     ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %H:%M:%S");
@@ -59,9 +60,8 @@ class SessionManager {
   }
 
   template <typename Duration>
-  static std::chrono::system_clock::time_point AddTime(
-      const std::chrono::system_clock::time_point& tp,
-      Duration duration) {
+  static std::chrono::system_clock::time_point
+  AddTime(const std::chrono::system_clock::time_point &tp, Duration duration) {
     return tp + duration;
   }
 
@@ -70,9 +70,9 @@ class SessionManager {
     std::cout << "User ID: " << user_id_ << std::endl;
   }
 
-  std::optional<std::chrono::minutes> CheckExpiration(
-      const std::chrono::system_clock::time_point& reference_time,
-      bool update_time) {
+  std::optional<std::chrono::minutes>
+  CheckExpiration(const std::chrono::system_clock::time_point &reference_time,
+                  bool update_time) {
     std::chrono::system_clock::time_point current_time;
 
     if (update_time) {
@@ -87,8 +87,8 @@ class SessionManager {
       return std::nullopt;
     }
 
-    return std::chrono::duration_cast<std::chrono::minutes>(
-        expiry_time - current_time);
+    return std::chrono::duration_cast<std::chrono::minutes>(expiry_time -
+                                                            current_time);
   }
 };
 
