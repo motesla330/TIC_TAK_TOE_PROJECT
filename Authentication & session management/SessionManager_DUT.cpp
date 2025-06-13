@@ -1,105 +1,126 @@
-#include <iostream>
-#include <string>
-#include <random>
-#include <sstream>
 #include <chrono>
 #include <iomanip>
+#include <iostream>
+#include <optional>
+#include <random>
+#include <sstream>
+#include <string>
 #include <unordered_map>
 
-using namespace std;
-
 class SessionManager {
+ private:
+  std::string token_;
+  unsigned int user_id_;
+  std::chrono::system_clock::time_point now_;
+  std::chrono::system_clock::time_point expiry_;
+  std::chrono::system_clock::time_point last_activity_;
+  bool remember_me_;
 
-private:
-    string Token;
-    unsigned int UserId;
-    chrono::system_clock::time_point Now;
-    chrono::system_clock::time_point Expiry;
-    chrono::system_clock::time_point LastActivity;
-    bool RemeberMe;
+ public:
+  void GenerateUuidV4() {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, 15);
 
-public:
+    const char* hex_chars = "0123456789abcdef";
+    std::stringstream ss;
 
-    void generate_uuid_v4() {
-        random_device rd;
-        mt19937 gen(rd());
-        uniform_int_distribution<> dis(0, 15);
-
-        const char* hex_chars = "0123456789abcdef";
-        stringstream ss;
-        
-        // Format: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
-        for (int i = 0; i < 36; i++) {
-            if (i == 8 || i == 13 || i == 18 || i == 23) {
-                ss << '-';
-            } else if (i == 14) {
-                ss << '4';  // UUID version 4
-            } else if (i == 19) {
-                ss << hex_chars[dis(gen) & 0x3 | 0x8];  // Variant 10xx
-            } else {
-                ss << hex_chars[dis(gen)];
-            }
-        }
-        Token = ss.str();
+    for (int i = 0; i < 36; i++) {
+      if (i == 8 || i == 13 || i == 18 || i == 23) {
+        ss << '-';
+      } else if (i == 14) {
+        ss << '4';
+      } else if (i == 19) {
+        ss << hex_chars[(dis(gen) & 0x3) | 0x8];
+      } else {
+        ss << hex_chars[dis(gen)];
+      }
     }
-    
-    void generate_user_id(const string& username) {
-        // Combine credentials with a game-specific salt
-        string combined = "TicTacToeSalt42_" + username;
-        
-        // Use std::hash to create a consistent numeric ID
-        size_t hash = std::hash<std::string>{}(combined);
-        
-        // Convert to a positive integer in a reasonable range
-        unsigned int user_id = static_cast<unsigned int>(hash % 1000000);
-        
-        // Ensure ID is at least 6 digits for display purposes
-        UserId = 100000 + (user_id % 900000);
-    }
+    token_ = ss.str();
+  }
 
-    //get time now
-    static chrono::system_clock::time_point now() {
-        return chrono::system_clock::now();
-    }
+  void GenerateUserId(const std::string& username) {
+    std::string combined = "TicTacToeSalt42_" + username;
+    size_t hash = std::hash<std::string>{}(combined);
+    unsigned int user_id = static_cast<unsigned int>(hash % 1000000);
+    user_id_ = 100000 + (user_id % 900000);
+  }
 
-    //converts time to readable form
-    static string time_to_string (const chrono::system_clock::time_point& tp) {
-        auto in_time_t = std::chrono::system_clock::to_time_t(tp);
-        std::stringstream ss;
-        ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %H:%M:%S");
-        return ss.str();
-    }
+  static std::chrono::system_clock::time_point Now() {
+    return std::chrono::system_clock::now();
+  }
 
-    template<typename Duration>
-    static chrono::system_clock::time_point add_time (
-        const chrono::system_clock::time_point& tp,
-        Duration duration) {
-        return tp + duration;
-    }
-    void print_session_data() const {
-        cout << "Token: " << Token << endl;
-        cout << "User ID: " << UserId << endl;
+  static std::string TimeToString(
+      const std::chrono::system_clock::time_point& tp) {
+    auto in_time_t = std::chrono::system_clock::to_time_t(tp);
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %H:%M:%S");
+    return ss.str();
+  }
+
+  template <typename Duration>
+  static std::chrono::system_clock::time_point AddTime(
+      const std::chrono::system_clock::time_point& tp, Duration duration) {
+    return tp + duration;
+  }
+
+  void PrintSessionData() const {
+    std::cout << "Token: " << token_ << std::endl;
+    std::cout << "User ID: " << user_id_ << std::endl;
+  }
+
+  std::optional<std::chrono::minutes> CheckExpiration(
+      const std::chrono::system_clock::time_point& expiry_time) {
+    auto now = std::chrono::system_clock::now();
+
+    if (now >= expiry_time) {
+      return std::nullopt;
     }
 
+    return std::chrono::duration_cast<std::chrono::minutes>(expiry_time - now);
+  }
 };
 
 int main() {
-    SessionManager session;
+  SessionManager session;
 
-    string username = "TestUser";
-    session.generate_uuid_v4();
-    session.generate_user_id(username);
+  std::string username = "PlayerOne";
+  session.GenerateUuidV4();
+  session.GenerateUserId(username);
 
-    auto current_time = SessionManager::now();
-    auto future_time = SessionManager::add_time(current_time, chrono::hours(1));
+  auto now = SessionManager::Now();
+  std::cout << "Current Time: " << SessionManager::TimeToString(now)
+            << std::endl;
 
-    cout << "Current time: " << SessionManager::time_to_string(current_time) << endl;
-    cout << "Time after 1 hour: " << SessionManager::time_to_string(future_time) << endl;
+  auto expiry = SessionManager::AddTime(now, std::chrono::minutes(10));
+  std::cout << "Session Expiry Time: " << SessionManager::TimeToString(expiry)
+            << std::endl;
 
-    session.print_session_data();
+  session.PrintSessionData();
 
-    return 0;
+  auto time_left = session.CheckExpiration(expiry);
+  if (time_left) {
+    std::cout << "Session is valid. Time until expiration: "
+              << time_left.value().count() << " minute(s)" << std::endl;
+  } else {
+    std::cout << "Session expired." << std::endl;
+  }
+
+  auto past_time = SessionManager::AddTime(now, std::chrono::minutes(-5));
+  auto expired_check = session.CheckExpiration(past_time);
+  if (expired_check) {
+    std::cout << "Time until expiration (should not happen): "
+              << expired_check.value().count() << " minute(s)" << std::endl;
+  } else {
+    std::cout << "Correctly detected expired session (past time)."
+              << std::endl;
+  }
+
+  return 0;
 }
+
+
+
 
 
 
