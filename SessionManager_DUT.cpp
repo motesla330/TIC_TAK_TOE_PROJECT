@@ -60,7 +60,8 @@ class SessionManager {
 
   template <typename Duration>
   static std::chrono::system_clock::time_point AddTime(
-      const std::chrono::system_clock::time_point& tp, Duration duration) {
+      const std::chrono::system_clock::time_point& tp,
+      Duration duration) {
     return tp + duration;
   }
 
@@ -70,59 +71,67 @@ class SessionManager {
   }
 
   std::optional<std::chrono::minutes> CheckExpiration(
-      const std::chrono::system_clock::time_point& expiry_time) {
-    auto now = std::chrono::system_clock::now();
+      const std::chrono::system_clock::time_point& reference_time,
+      bool update_time) {
+    std::chrono::system_clock::time_point current_time;
 
-    if (now >= expiry_time) {
+    if (update_time) {
+      current_time = reference_time;
+    } else {
+      current_time = std::chrono::system_clock::now();
+    }
+
+    auto expiry_time = reference_time + std::chrono::minutes(30);
+
+    if (current_time >= expiry_time) {
       return std::nullopt;
     }
 
-    return std::chrono::duration_cast<std::chrono::minutes>(expiry_time - now);
+    return std::chrono::duration_cast<std::chrono::minutes>(
+        expiry_time - current_time);
   }
 };
 
 int main() {
   SessionManager session;
 
-  std::string username = "PlayerOne";
   session.GenerateUuidV4();
-  session.GenerateUserId(username);
-
-  auto now = SessionManager::Now();
-  std::cout << "Current Time: " << SessionManager::TimeToString(now)
-            << std::endl;
-
-  auto expiry = SessionManager::AddTime(now, std::chrono::minutes(10));
-  std::cout << "Session Expiry Time: " << SessionManager::TimeToString(expiry)
-            << std::endl;
+  session.GenerateUserId("PlayerOne");
 
   session.PrintSessionData();
 
-  auto time_left = session.CheckExpiration(expiry);
-  if (time_left) {
-    std::cout << "Session is valid. Time until expiration: "
-              << time_left.value().count() << " minute(s)" << std::endl;
+  auto now = SessionManager::Now();
+  std::cout << "Now: " << SessionManager::TimeToString(now) << std::endl;
+
+  auto simulated_future =
+      SessionManager::AddTime(now, std::chrono::minutes(10));
+  auto result1 = session.CheckExpiration(simulated_future, true);
+  std::cout << "[Simulated Future (+10 min), updateTime = true] -> ";
+  if (result1) {
+    std::cout << "Session valid. Time left: " << result1.value().count()
+              << " minutes\n";
   } else {
-    std::cout << "Session expired." << std::endl;
+    std::cout << "Session expired.\n";
   }
 
-  auto past_time = SessionManager::AddTime(now, std::chrono::minutes(-5));
-  auto expired_check = session.CheckExpiration(past_time);
-  if (expired_check) {
-    std::cout << "Time until expiration (should not happen): "
-              << expired_check.value().count() << " minute(s)" << std::endl;
+  auto result2 = session.CheckExpiration(now, false);
+  std::cout << "[System Time, updateTime = false] -> ";
+  if (result2) {
+    std::cout << "Session valid. Time left: " << result2.value().count()
+              << " minutes\n";
   } else {
-    std::cout << "Correctly detected expired session (past time)."
-              << std::endl;
+    std::cout << "Session expired.\n";
+  }
+
+  auto past_time = SessionManager::AddTime(now, -std::chrono::minutes(31));
+  auto result3 = session.CheckExpiration(past_time, true);
+  std::cout << "[Past (-31 min), updateTime = true] -> ";
+  if (result3) {
+    std::cout << "Session valid. Time left: " << result3.value().count()
+              << " minutes\n";
+  } else {
+    std::cout << "Session expired.\n";
   }
 
   return 0;
 }
-
-
-
-
-
-
-//g++ SessionManager_DUT.cpp -o session_Manager.exe
-//.\session_Manager.exe
