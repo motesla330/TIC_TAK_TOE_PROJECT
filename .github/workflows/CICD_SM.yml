@@ -3,7 +3,7 @@ name: CI for SessionManagement.cpp
 on:
   push:
     paths:
-      - 'SessionManager_DUT.cpp' # This line makes the workflow specific to Authentication.cpp
+      - 'SessionManager_DUT_.cpp' # This line makes the workflow specific to Authentication.cpp
 
 jobs:
   super-lint:
