@@ -1,0 +1,56 @@
+# ninja log v6
+16	292	7716374705077582	tictactoe_autogen/timestamp	13f3a264c2a1a517
+1279	2143	7716365033619792	CMakeFiles/tictactoe.dir/gamelogic.cpp.obj	6d82e8bf165501b9
+1020	1839	7712071827157782	CMakeFiles/tictactoe.dir/historymanager.cpp.obj	e1cf9fd476f435dc
+16	292	7716374705077582	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+16	292	7716374705077582	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+1272	2148	7716365033584561	CMakeFiles/tictactoe.dir/board.cpp.obj	a7afa6897b2f0a6d
+16	292	7716374705077582	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+1002	3619	7716373585011392	CMakeFiles/tictactoe.dir/tictactoe_autogen/mocs_compilation.cpp.obj	e24652634183f5ad
+1007	3688	7716373585057566	CMakeFiles/tictactoe.dir/main.cpp.obj	2e6eb90ea55adc91
+293	3165	7716374707875690	CMakeFiles/tictactoe.dir/mainwindow.cpp.obj	8ffc6d86b3c26a76
+3165	3472	7716374736608438	tictactoe.exe	eda301db22f7facc
+903	1406	7716371051593745	CMakeFiles/tictactoe.dir/ai_opponent.cpp.obj	bc53e30b0a956599
+76	1074	7716382080876529	tictactoe_autogen/timestamp	13f3a264c2a1a517
+76	1074	7716382080876529	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+76	1074	7716382080876529	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+76	1074	7716382080876529	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+1075	3883	7716382082097920	CMakeFiles/tictactoe.dir/tictactoe_autogen/mocs_compilation.cpp.obj	e24652634183f5ad
+1080	3926	7716382082143265	CMakeFiles/tictactoe.dir/main.cpp.obj	2e6eb90ea55adc91
+73	353	7716382794393283	tictactoe_autogen/timestamp	13f3a264c2a1a517
+73	353	7716382794393283	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+73	353	7716382794393283	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+73	353	7716382794393283	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+354	3404	7716382797200741	CMakeFiles/tictactoe.dir/mainwindow.cpp.obj	8ffc6d86b3c26a76
+3404	3737	7716382827702366	tictactoe.exe	eda301db22f7facc
+12	1034	7716388303368024	tictactoe_autogen/timestamp	13f3a264c2a1a517
+12	1034	7716388303368024	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+12	1034	7716388303368024	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+12	1034	7716388303368024	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+1051	1607	7716388304631241	CMakeFiles/tictactoe.dir/ai_opponent.cpp.obj	bc53e30b0a956599
+1035	4262	7716388304487782	CMakeFiles/tictactoe.dir/tictactoe_autogen/mocs_compilation.cpp.obj	e24652634183f5ad
+1040	4331	7716388304487782	CMakeFiles/tictactoe.dir/main.cpp.obj	2e6eb90ea55adc91
+1045	4724	7716388304569233	CMakeFiles/tictactoe.dir/mainwindow.cpp.obj	8ffc6d86b3c26a76
+4724	5039	7716388341384280	tictactoe.exe	eda301db22f7facc
+21	287	7716390265090585	tictactoe_autogen/timestamp	13f3a264c2a1a517
+21	287	7716390265090585	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+21	287	7716390265090585	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+21	287	7716390265090585	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+293	671	7716390267831225	CMakeFiles/tictactoe.dir/ai_opponent.cpp.obj	bc53e30b0a956599
+288	3642	7716390267778943	CMakeFiles/tictactoe.dir/mainwindow.cpp.obj	8ffc6d86b3c26a76
+3642	3934	7716390301297637	tictactoe.exe	eda301db22f7facc
+11	925	7716391541162679	tictactoe_autogen/timestamp	13f3a264c2a1a517
+11	925	7716391541162679	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+11	925	7716391541162679	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+11	925	7716391541162679	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+947	1756	7716391542821094	CMakeFiles/tictactoe.dir/ai_opponent.cpp.obj	bc53e30b0a956599
+927	3762	7716391542661524	CMakeFiles/tictactoe.dir/tictactoe_autogen/mocs_compilation.cpp.obj	e24652634183f5ad
+935	3848	7716391542737770	CMakeFiles/tictactoe.dir/main.cpp.obj	2e6eb90ea55adc91
+941	4165	7716391542805194	CMakeFiles/tictactoe.dir/mainwindow.cpp.obj	8ffc6d86b3c26a76
+4165	4450	7716391575042412	tictactoe.exe	eda301db22f7facc
+9	165	7716395912432788	tictactoe_autogen/timestamp	13f3a264c2a1a517
+9	165	7716395912432788	tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+9	165	7716395912432788	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp	13f3a264c2a1a517
+9	165	7716395912432788	C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp	13f3a264c2a1a517
+166	2235	7716395914074200	CMakeFiles/tictactoe.dir/mainwindow.cpp.obj	8ffc6d86b3c26a76
+2235	2656	7716395934751706	tictactoe.exe	eda301db22f7facc
