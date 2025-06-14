@@ -35,7 +35,7 @@ public:
   void SignIn(const std::string &username, const std::string &password);
 
   // push signed in data to the database
-  void PushSignedInData(std::string *&username, std::string *&hashpassword);
+  void PushSignedInData(std::string *&username);
 
   // Makes sure that the user has an account
   void IsHereConnect(const std::string &hashedpassword, const bool &ishere);
@@ -47,7 +47,8 @@ public:
   bool IsHereInterface();
 
   // Validation methods
-  bool FieldsIsValid();
+  bool FieldsIsValidNew();
+  bool FieldsIsValidOld();
   bool UsernameIsValid();
   bool PasswordLongIsValid();
   bool PasswordComplexityIsValid();
