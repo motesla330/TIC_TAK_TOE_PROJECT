@@ -4,9 +4,9 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QGridLayout>
-#include "board.h"
-#include "GameLogic.h"
-#include "HistoryManager.h"
+#include "Board.h"
+#include "gamelogic.h"
+#include "historymanager.h"
 #include "AIAdapter.h"
 
 QT_BEGIN_NAMESPACE
