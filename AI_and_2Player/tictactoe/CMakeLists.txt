@@ -19,6 +19,15 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+add_executable(tictactoe
+    main.cpp
+    mainwindow.cpp
+    Board.cpp            
+    gamelogic.cpp         
+    historymanager.cpp 
+    ai_opponent.cpp           
+)
+
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(tictactoe
