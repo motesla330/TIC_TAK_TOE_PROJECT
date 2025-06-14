@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
         vsAI = false;
     }
 
-    setupboardUI();
+    setupBoardUI();
     historyManager.startNewGame(Player::X);
 }
 
@@ -36,7 +36,7 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::setupboardUI() {
+void MainWindow::setupBoardUI() {
     central = new QWidget(this);
     gridLayout = new QGridLayout(central);
     QFont font("Arial", 24);
