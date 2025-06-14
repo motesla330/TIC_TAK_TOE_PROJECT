@@ -1,5 +1,5 @@
-C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/mainwindow.h \
-  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/moc_predefs.h \
+C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/mainwindow.h \
+  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/moc_predefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20iterator.h \
@@ -378,6 +378,6 @@ C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/Board.h \
-  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/GameLogic.h \
-  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/HistoryManager.h
+  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/Board.h \
+  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/GameLogic.h \
+  C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/HistoryManager.h

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "tictactoe.exe"
+			"path" : "Game__Logic.exe"
 		},
 		{
-			"path" : "tictactoe.pdb"
+			"path" : "Game__Logic.pdb"
 		}
 	],
 	"backtrace" : 4,
@@ -322,7 +322,7 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/include"
+					"path" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/include"
 				},
 				{
 					"backtrace" : 14,
@@ -374,14 +374,14 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "tictactoe_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"id" : "Game__Logic_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
-			"id" : "tictactoe_autogen::@6890427a1f51a3e7e1df"
+			"id" : "Game__Logic_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "tictactoe::@6890427a1f51a3e7e1df",
+	"id" : "Game__Logic::@6890427a1f51a3e7e1df",
 	"install" : 
 	{
 		"destinations" : 
@@ -393,7 +393,7 @@
 		],
 		"prefix" : 
 		{
-			"path" : "C:/Program Files (x86)/tictactoe"
+			"path" : "C:/Program Files (x86)/Game__Logic"
 		}
 	},
 	"link" : 
@@ -475,8 +475,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "tictactoe",
-	"nameOnDisk" : "tictactoe.exe",
+	"name" : "Game__Logic",
+	"nameOnDisk" : "Game__Logic.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -535,7 +535,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -596,19 +596,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/include/ui_mainwindow.h",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/include/ui_mainwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/timestamp",
 			"sourceGroupIndex" : 3
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/timestamp.rule",
 			"sourceGroupIndex" : 4
 		}
 	],

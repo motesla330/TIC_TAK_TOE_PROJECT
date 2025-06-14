@@ -1,5 +1,5 @@
-libdir=C:/Program Files (x86)/tictactoe/lib
-includedir=C:/Program Files (x86)/tictactoe/include
+libdir=C:/Program Files (x86)/Game__Logic/lib
+includedir=C:/Program Files (x86)/Game__Logic/include
 
 Name: gmock
 Description: GoogleMock (without main() function)

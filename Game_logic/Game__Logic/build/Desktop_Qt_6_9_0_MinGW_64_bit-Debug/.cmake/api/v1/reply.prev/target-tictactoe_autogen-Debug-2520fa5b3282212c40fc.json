@@ -17,12 +17,12 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "tictactoe_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"id" : "Game__Logic_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "tictactoe_autogen::@6890427a1f51a3e7e1df",
+	"id" : "Game__Logic_autogen::@6890427a1f51a3e7e1df",
 	"isGeneratorProvided" : true,
-	"name" : "tictactoe_autogen",
+	"name" : "Game__Logic_autogen",
 	"paths" : 
 	{
 		"build" : ".",
@@ -51,19 +51,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/tictactoe_autogen",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/Game__Logic_autogen",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/tictactoe_autogen.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/Game__Logic_autogen.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/timestamp.rule",
+			"path" : "build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/timestamp.rule",
 			"sourceGroupIndex" : 1
 		}
 	],

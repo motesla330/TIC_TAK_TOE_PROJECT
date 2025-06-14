@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
+			"value" : "c:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -563,7 +563,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe"
+			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -767,7 +767,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/tictactoe"
+			"value" : "C:/Program Files (x86)/Game__Logic"
 		},
 		{
 			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
@@ -1063,7 +1063,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1075,7 +1075,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "tictactoe"
+			"value" : "Game__Logic"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -6559,10 +6559,10 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files (x86)/tictactoe"
+			"value" : "C:/Program Files (x86)/Game__Logic"
 		},
 		{
-			"name" : "tictactoe_BINARY_DIR",
+			"name" : "Game__Logic_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -6571,10 +6571,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
+			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug"
 		},
 		{
-			"name" : "tictactoe_IS_TOP_LEVEL",
+			"name" : "Game__Logic_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -6586,7 +6586,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "tictactoe_SOURCE_DIR",
+			"name" : "Game__Logic_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -6595,7 +6595,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe"
+			"value" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic"
 		}
 	],
 	"kind" : "cache",

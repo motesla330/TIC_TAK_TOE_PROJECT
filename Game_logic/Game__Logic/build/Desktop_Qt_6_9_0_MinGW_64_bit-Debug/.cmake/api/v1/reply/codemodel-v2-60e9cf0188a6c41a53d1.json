@@ -30,7 +30,7 @@
 					[
 						0
 					],
-					"name" : "tictactoe",
+					"name" : "Game__Logic",
 					"targetIndexes" : 
 					[
 						0,
@@ -43,23 +43,23 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "tictactoe::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-tictactoe-Debug-743950bf7ac8e37435ec.json",
-					"name" : "tictactoe",
+					"id" : "Game__Logic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Game__Logic-Debug-743950bf7ac8e37435ec.json",
+					"name" : "Game__Logic",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "tictactoe_autogen::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-tictactoe_autogen-Debug-2520fa5b3282212c40fc.json",
-					"name" : "tictactoe_autogen",
+					"id" : "Game__Logic_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Game__Logic_autogen-Debug-2520fa5b3282212c40fc.json",
+					"name" : "Game__Logic_autogen",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "tictactoe_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-tictactoe_autogen_timestamp_deps-Debug-6d197123f687d95d6e5f.json",
-					"name" : "tictactoe_autogen_timestamp_deps",
+					"id" : "Game__Logic_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Game__Logic_autogen_timestamp_deps-Debug-6d197123f687d95d6e5f.json",
+					"name" : "Game__Logic_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
 			]
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
-		"source" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe"
+		"build" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
+		"source" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic"
 	},
 	"version" : 
 	{

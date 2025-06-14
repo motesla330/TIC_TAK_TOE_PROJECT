@@ -30,9 +30,9 @@
 			"destination" : "bin",
 			"paths" : 
 			[
-				"tictactoe.exe"
+				"Game__Logic.exe"
 			],
-			"targetId" : "tictactoe::@6890427a1f51a3e7e1df",
+			"targetId" : "Game__Logic::@6890427a1f51a3e7e1df",
 			"targetIndex" : 0,
 			"type" : "target"
 		}

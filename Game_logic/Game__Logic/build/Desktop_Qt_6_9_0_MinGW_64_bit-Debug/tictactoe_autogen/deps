@@ -1,4 +1,4 @@
-tictactoe_autogen/timestamp: \
+Game__Logic_autogen/timestamp: \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20iterator.h \
@@ -581,20 +581,20 @@ tictactoe_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/CMakeLists.txt \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/board.cpp \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/board.h \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/moc_predefs.h \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/gamelogic.cpp \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/gamelogic.h \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/historymanager.cpp \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/historymanager.h \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/main.cpp \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/mainwindow.cpp \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/mainwindow.h \
-	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/tictactoe/mainwindow.ui \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/CMakeLists.txt \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/board.cpp \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/board.h \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/moc_predefs.h \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/gamelogic.cpp \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/gamelogic.h \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/historymanager.cpp \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/historymanager.h \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/main.cpp \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/mainwindow.cpp \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/mainwindow.h \
+	C:/Users/PC/OneDrive/Desktop/mannas/Tic\ Tac\ Toe/Game__Logic/mainwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

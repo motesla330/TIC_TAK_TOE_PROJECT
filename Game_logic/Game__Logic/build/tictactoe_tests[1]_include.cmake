@@ -1,5 +1,5 @@
-if(EXISTS "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/tictactoe_tests[1]_tests.cmake")
-  include("C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/tictactoe_tests[1]_tests.cmake")
+if(EXISTS "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/Game__Logic/build/Game__Logic_tests[1]_tests.cmake")
+  include("C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/Game__Logic/build/Game__Logic_tests[1]_tests.cmake")
 else()
-  add_test(tictactoe_tests_NOT_BUILT tictactoe_tests_NOT_BUILT)
+  add_test(Game__Logic_tests_NOT_BUILT Game__Logic_tests_NOT_BUILT)
 endif()

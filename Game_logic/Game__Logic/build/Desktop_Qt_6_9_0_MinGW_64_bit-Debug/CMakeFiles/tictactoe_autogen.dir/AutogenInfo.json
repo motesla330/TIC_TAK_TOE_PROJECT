@@ -1,18 +1,18 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe",
+	"BUILD_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic",
 	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/CMakeLists.txt",
-		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake",
-		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
+		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/CMakeLists.txt",
+		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake",
+		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake",
@@ -25,7 +25,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake",
-		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+		"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
@@ -325,40 +325,40 @@
 		"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe",
+	"CMAKE_SOURCE_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "tictactoe_autogen/timestamp",
+	"DEP_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "Game__Logic_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/board.h",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/board.h",
 			"MU",
 			"EWIEGA46WW/moc_board.cpp",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/gamelogic.h",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/gamelogic.h",
 			"MU",
 			"EWIEGA46WW/moc_gamelogic.cpp",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/historymanager.h",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/historymanager.h",
 			"MU",
 			"EWIEGA46WW/moc_historymanager.cpp",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/mainwindow.h",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -414,41 +414,41 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/tictactoe_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/Game__Logic_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/tictactoe_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/Game__Logic_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.9.0/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.9.0/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 9,
-	"SETTINGS_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/tictactoe_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/CMakeFiles/Game__Logic_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/board.cpp",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/board.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/gamelogic.cpp",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/gamelogic.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/historymanager.cpp",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/historymanager.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/main.cpp",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/tictactoe/mainwindow.cpp",
+			"C:/Users/PC/OneDrive/Desktop/mannas/Tic Tac Toe/Game__Logic/mainwindow.cpp",
 			"MU",
 			null
 		]
