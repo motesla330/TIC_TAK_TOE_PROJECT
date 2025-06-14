@@ -34,7 +34,7 @@ private:
     GameLogic logic;
     GameHistoryManager historyManager;
 
-    void setupBoardUI();
+    void setupboardUI();
     void resetGame();
     void updateButton(int row, int col, char symbol);
     void showEndMessage(const QString& message);
