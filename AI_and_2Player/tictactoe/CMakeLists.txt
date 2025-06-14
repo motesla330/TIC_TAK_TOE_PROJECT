@@ -19,12 +19,13 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(tictactoe
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        board.h board.cpp
-        GameLogic.h GameLogic.cpp
+        Board.h Board.cpp
+        gamelogic.h gamelogic.cpp
         historymanager.h historymanager.cpp
         ai_opponent.h ai_opponent.cpp
         AIAdapter.h
