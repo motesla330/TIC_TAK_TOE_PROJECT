@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Game__Logic VERSION 0.1 LANGUAGES CXX)
+project(tictactoe VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -28,7 +28,7 @@ set(PROJECT_SOURCES
 
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Game__Logic
+    qt_add_executable(tictactoe
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         board.h board.cpp
@@ -36,34 +36,34 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         historymanager.h historymanager.cpp
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Game__Logic APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET tictactoe APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(Game__Logic SHARED
+        add_library(tictactoe SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(Game__Logic
+        add_executable(tictactoe
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_include_directories(Game__Logic PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(tictactoe PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-target_link_libraries(Game__Logic PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Game__Logic)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.tictactoe)
 endif()
-set_target_properties(Game__Logic PROPERTIES
+set_target_properties(tictactoe PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -72,18 +72,18 @@ set_target_properties(Game__Logic PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS Game__Logic
+install(TARGETS tictactoe
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Game__Logic)
+    qt_finalize_executable(tictactoe)
 endif()
 
 cmake_minimum_required(VERSION 3.14)
-project(Game__Logic)
+project(tictactoe)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -104,7 +104,7 @@ set(HEADERS
 )
 
 # Main executable
-add_executable(Game__Logic ${SOURCES} ${HEADERS})
+add_executable(tictactoe ${SOURCES} ${HEADERS})
 
 # ==========================
 # GoogleTest Section
@@ -122,16 +122,16 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # Add test executable
-add_executable(Game__Logic_tests
+add_executable(tictactoe_tests
     Tests/test_gamelogic.cpp
 )
 
-target_link_libraries(Game__Logic_tests
+target_link_libraries(tictactoe_tests
     gtest_main
 )
 
 # Include dirs for test target
-target_include_directories(Game__Logic_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(tictactoe_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 include(GoogleTest)
-gtest_discover_tests(Game__Logic_tests)
+gtest_discover_tests(tictactoe_tests)
