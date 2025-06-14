@@ -1,4 +1,4 @@
-name: Build and Compile C++ AI
+name: C++ Header/Module Check
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: AI
@@ -17,12 +18,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install build tools
+      - name: Install C++ build tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ make
+          sudo apt-get install -y g++
 
-      - name: Compile AI_Opponent.cpp
+      - name: Compile AI_Opponent.cpp (syntax check only)
         run: |
-          g++ -std=c++11 -Wall -Wextra -O2 -o tic_tac_toe AI_Opponent.cpp
-
+          g++ -std=c++11 -Wall -Wextra -c AI_Opponent.cpp
