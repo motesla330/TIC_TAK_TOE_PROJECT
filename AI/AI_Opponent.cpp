@@ -2,17 +2,12 @@
 // a player 
 #include<bits/stdc++.h>   
 using namespace std; 
+#include "AI_Opponent.h"
 
-char player = 'x', opponent = 'o',EMPTY = '_';
-const int MAX = 1000;
-const int MIN = -1000; 
-struct Move 
-{ 
-    int row, col; 
-}; 
+// Define global player and opponent symbols
+char player = 'x';
+char opponent = 'o';
 
-enum Difficulty { EASY, MEDIUM, HARD };
-   
 // This function returns true if there are moves 
 // remaining on the board. It returns false if 
 // there are no moves left to play. 
@@ -193,7 +188,7 @@ Difficulty selectDifficulty() {
         default: cout << "Invalid, defaulting to Hard.\n"; return HARD;
     }
 }
-
+/*
 int main() {
     char board[3][3] = {
         { '_', '_', '_' },
@@ -252,4 +247,4 @@ int main() {
     }
 
     return 0;
-}
+}*/
