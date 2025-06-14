@@ -1,0 +1,10 @@
+^C:\USERS\PC\ONEDRIVE\DOCUMENTS\GITHUB\TIC_TAK_TOE_PROJECT\GAME_LOGIC\TICTACTOE\BUILD\_DEPS\GOOGLETEST-SUBBUILD\CMAKEFILES\BE11E964F928BDF013294A3406EBBADD\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild -BC:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/googletest-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

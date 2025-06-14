@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\a47d1dccf31c117c45404759f39440fc\googletest-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\22f681d6956770aaca3fa8d2d6ad18dd\googletest-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\be11e964f928bdf013294a3406ebbadd\googletest-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\_deps\googletest-subbuild\CMakeFiles\googletest-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{2F244EDB-095C-3598-AF8B-220B5ED188C9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

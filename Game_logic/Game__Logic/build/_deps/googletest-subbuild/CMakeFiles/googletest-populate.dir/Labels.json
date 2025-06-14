@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/be11e964f928bdf013294a3406ebbadd/googletest-populate.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/22f681d6956770aaca3fa8d2d6ad18dd/googletest-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/Game_logic/tictactoe/build/_deps/googletest-subbuild/CMakeFiles/a47d1dccf31c117c45404759f39440fc/googletest-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"googletest-populate"
+		],
+		"name" : "googletest-populate"
+	}
+}

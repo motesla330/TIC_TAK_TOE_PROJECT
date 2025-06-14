@@ -1,0 +1,137 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(Game__Logic VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+
+set(PROJECT_SOURCES
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+
+    Board.cpp
+    Board.h
+    gamelogic.cpp
+    gamelogic.h
+    historymanager.cpp
+    historymanager.h
+)
+
+
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(Game__Logic
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+        board.h board.cpp
+        GameLogic.h GameLogic.cpp
+        historymanager.h historymanager.cpp
+    )
+# Define target properties for Android with Qt 6 as:
+#    set_property(TARGET Game__Logic APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
+# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
+else()
+    if(ANDROID)
+        add_library(Game__Logic SHARED
+            ${PROJECT_SOURCES}
+        )
+# Define properties for Android with Qt 5 after find_package() calls as:
+#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+    else()
+        add_executable(Game__Logic
+            ${PROJECT_SOURCES}
+        )
+    endif()
+endif()
+
+target_include_directories(Game__Logic PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(Game__Logic PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
+# If you are developing for iOS or macOS you should consider setting an
+# explicit, fixed bundle identifier manually though.
+if(${QT_VERSION} VERSION_LESS 6.1.0)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Game__Logic)
+endif()
+set_target_properties(Game__Logic PROPERTIES
+    ${BUNDLE_ID_OPTION}
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
+
+include(GNUInstallDirs)
+install(TARGETS Game__Logic
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(Game__Logic)
+endif()
+
+cmake_minimum_required(VERSION 3.14)
+project(Game__Logic)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# Add source files
+set(SOURCES
+    Board.cpp
+    gamelogic.cpp
+    historymanager.cpp
+    mainwindow.cpp
+    main.cpp
+)
+
+set(HEADERS
+    Board.h
+    gamelogic.h
+    historymanager.h
+    mainwindow.h
+)
+
+# Main executable
+add_executable(Game__Logic ${SOURCES} ${HEADERS})
+
+# ==========================
+# GoogleTest Section
+# ==========================
+# Download and add googletest
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+)
+# For Windows: Prevent overriding the parent project's compiler/linker settings
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+# Add test executable
+add_executable(Game__Logic_tests
+    Tests/test_gamelogic.cpp
+)
+
+target_link_libraries(Game__Logic_tests
+    gtest_main
+)
+
+# Include dirs for test target
+target_include_directories(Game__Logic_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+include(GoogleTest)
+gtest_discover_tests(Game__Logic_tests)
