@@ -1,4 +1,3 @@
-// MainWindow.cpp (updated with AI and 2-player option)
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
@@ -8,8 +7,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
     ui(new Ui::MainWindow),
-    Board(),
-    logic(Board) {
+    board(),
+    logic(board) {
     ui->setupUi(this);
 
     // Ask for game mode
@@ -29,15 +28,15 @@ MainWindow::MainWindow(QWidget *parent)
         vsAI = false;
     }
 
-    setupBoardUI();
-    historymanager.startNewGame(Player::X);
+    setupboardUI();
+    historyManager.startNewGame(Player::X);
 }
 
 MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::setupBoardUI() {
+void MainWindow::setupboardUI() {
     central = new QWidget(this);
     gridLayout = new QGridLayout(central);
     QFont font("Arial", 24);
@@ -50,20 +49,20 @@ void MainWindow::setupBoardUI() {
             gridLayout->addWidget(buttons[i][j], i, j);
 
             connect(buttons[i][j], &QPushButton::clicked, [=]() {
-                if (Board.getCell(i, j) == ' ') {
-                    char symbol = gamelogic.getCurrentPlayer();
-                    if (Board.setCell(i, j, symbol)) {
+                if (board.getCell(i, j) == ' ') {
+                    char symbol = logic.getCurrentPlayer();
+                    if (board.setCell(i, j, symbol)) {
                         updateButton(i, j, symbol);
-                        historymanager.recordMove(i, j, symbol == 'X' ? Player::X : Player::O);
+                        historyManager.recordMove(i, j, symbol == 'X' ? Player::X : Player::O);
 
-                        if (gamelogic.checkWin(symbol)) {
+                        if (logic.checkWin(symbol)) {
                             showEndMessage(QString("Player %1 wins!").arg(symbol));
                             historyManager.endCurrentGame(symbol == 'X' ? Player::X : Player::O);
                             resetGame();
                             return;
                         } else if (logic.isDraw()) {
                             showEndMessage("It's a draw!");
-                            historymanager.endCurrentGame(Player::None);
+                            historyManager.endCurrentGame(Player::None);
                             resetGame();
                             return;
                         }
@@ -72,9 +71,9 @@ void MainWindow::setupBoardUI() {
 
                         // AI Turn (only if enabled and it's O's turn)
                         if (vsAI && logic.getCurrentPlayer() == 'O') {
-                            Move aiMove = getAIMove(Board, aiDifficulty, 'O', 'X');
+                            Move aiMove = getAIMove(board, aiDifficulty, 'O', 'X');
                             if (aiMove.row != -1 && aiMove.col != -1 &&
-                                Board.setCell(aiMove.row, aiMove.col, 'O')) {
+                                board.setCell(aiMove.row, aiMove.col, 'O')) {
                                 updateButton(aiMove.row, aiMove.col, 'O');
                                 historyManager.recordMove(aiMove.row, aiMove.col, Player::O);
 
@@ -102,7 +101,7 @@ void MainWindow::setupBoardUI() {
 }
 
 void MainWindow::handleButtonClick() {
-    // placeholder – logic handled directly in lambda in setupBoardUI
+    // placeholder – logic handled directly in lambda in setupboardUI
 }
 
 void MainWindow::updateButton(int row, int col, char symbol) {
@@ -114,7 +113,7 @@ void MainWindow::showEndMessage(const QString &message) {
 }
 
 void MainWindow::resetGame() {
-    Board.resetBoard();
+    board.resetBoard();
     logic.reset();
 
     for (int i = 0; i < 3; ++i)
