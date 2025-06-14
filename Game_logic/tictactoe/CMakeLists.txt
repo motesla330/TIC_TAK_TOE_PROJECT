@@ -1,13 +1,18 @@
 cmake_minimum_required(VERSION 3.16)
-
 project(tictactoe VERSION 0.1 LANGUAGES CXX)
 
+# ========================
+# Core Project Settings
+# ========================
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# ========================
+# Qt Configuration
+# ========================
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
@@ -17,7 +22,6 @@ set(PROJECT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-
     Board.cpp
     Board.h
     gamelogic.cpp
@@ -26,112 +30,54 @@ set(PROJECT_SOURCES
     historymanager.h
 )
 
-
+# Main executable (Qt)
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(tictactoe
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        board.h board.cpp
-        GameLogic.h GameLogic.cpp
-        historymanager.h historymanager.cpp
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET tictactoe APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
-    if(ANDROID)
-        add_library(tictactoe SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(tictactoe
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    add_executable(tictactoe ${PROJECT_SOURCES})
 endif()
-
-target_include_directories(tictactoe PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.tictactoe)
+# ========================
+# Google Test Configuration
+# ========================
+option(BUILD_TESTS "Build unit tests" ON)
+
+if(BUILD_TESTS)
+    include(FetchContent)
+    FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/refs/heads/main.zip
+    )
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(googletest)
+
+    # Test executable (DIFFERENT NAME)
+    add_executable(tictactoe_tests
+        Tests/test_gamelogic.cpp
+        # Add other test files...
+    )
+
+    target_link_libraries(tictactoe_tests
+        PRIVATE
+        tictactoe  # Links with main executable
+        GTest::GTest
+        GTest::Main
+    )
+
+    target_include_directories(tictactoe_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    include(GoogleTest)
+    gtest_discover_tests(tictactoe_tests)
 endif()
-set_target_properties(tictactoe PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
 
-include(GNUInstallDirs)
-install(TARGETS tictactoe
-    BUNDLE DESTINATION .
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
-
+# ========================
+# Install/Platform Config
+# ========================
+# ... (Keep your existing install/packaging config)
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(tictactoe)
 endif()
-
-cmake_minimum_required(VERSION 3.14)
-project(tictactoe)
-
-set(CMAKE_CXX_STANDARD 17)
-
-# Add source files
-set(SOURCES
-    Board.cpp
-    gamelogic.cpp
-    historymanager.cpp
-    mainwindow.cpp
-    main.cpp
-)
-
-set(HEADERS
-    Board.h
-    gamelogic.h
-    historymanager.h
-    mainwindow.h
-)
-
-# Main executable
-add_executable(tictactoe ${SOURCES} ${HEADERS})
-
-# ==========================
-# GoogleTest Section
-# ==========================
-# Download and add googletest
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/refs/heads/main.zip
-)
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-enable_testing()
-
-# Add test executable
-add_executable(tictactoe_tests
-    Tests/test_gamelogic.cpp
-)
-
-target_link_libraries(tictactoe_tests
-    gtest_main
-)
-
-# Include dirs for test target
-target_include_directories(tictactoe_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-
-include(GoogleTest)
-gtest_discover_tests(tictactoe_tests)
