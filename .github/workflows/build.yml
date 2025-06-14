@@ -9,7 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: AI
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -17,5 +19,3 @@ jobs:
     - name: Install build tools
       run: sudo apt-get update && sudo apt-get install -y g++ make
 
-    - name: Compile AI_Opponent.cpp
-      run: g++ -std=c++11 -o tic_tac_toe AI_Opponent.cpp
