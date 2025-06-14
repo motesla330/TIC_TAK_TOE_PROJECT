@@ -1,25 +1,22 @@
-name: CI for Authentication.cpp
+name: Lint SessionManager_DUT.cpp
 
 on:
   push:
+    branches:
+      - Session_Management
     paths:
-      - 'SessionManager_DUT.cpp' # This line makes the workflow specific to Authentication.cpp
+      - 'SessionManager_DUT.cpp'
 
 jobs:
   super-lint:
-    name: lint code base
+    name: Lint SessionManager_DUT.cpp
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4 # Uses the latest recommended checkout action
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Run super-linter
-      # IMPORTANT: Using a specific, stable version (e.g., v5.0.0)
-      # to prevent 'Failed to view version file' errors often caused by
-      # issues with general major versions (like v3, v5) or caching.
-      # You can check the Super-Linter GitHub repository for the absolute
-      # latest stable release tag if v5.0.0 causes further issues.
-      uses: github/super-linter@v5.0.0 # Changed to a specific full version
-      env:
-        DEFAULT_BRANCH: Authentication_Checking&Testing
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Super-Linter
+        uses: github/super-linter@v5.0.0
+        env:
+          DEFAULT_BRANCH: Authentication_Checking&Testing
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
