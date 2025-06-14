@@ -1,4 +1,4 @@
-#include "GameLogic.h"
+#include "gamelogic.h"
 
 // Winning patterns (8 possible ways to win in 3x3 Tic-Tac-Toe)
 const int GameLogic::WIN_PATTERNS[8] = {
