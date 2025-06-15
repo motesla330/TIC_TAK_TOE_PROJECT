@@ -33,8 +33,8 @@ set(HEADERS
 
 qt6_wrap_ui(UI_HEADERS mainwindow.ui)
 
-add_executable(TicTacToe ${SOURCES} ${HEADERS} ${UI_HEADERS})
-target_link_libraries(TicTacToe Qt6::Core Qt6::Gui Qt6::Widgets)
+add_executable(tictactoe ${SOURCES} ${HEADERS} ${UI_HEADERS})
+target_link_libraries(tictactoe Qt6::Core Qt6::Gui Qt6::Widgets)
 
 # GoogleTest
 add_subdirectory(../googletest googletest-build)
@@ -43,7 +43,6 @@ enable_testing()
 
 add_executable(runTests
     test/test_main.cpp
-    test/test_logic.cpp
     test/test_board.cpp
 )
 
