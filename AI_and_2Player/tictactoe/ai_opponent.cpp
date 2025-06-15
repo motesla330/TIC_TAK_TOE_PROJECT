@@ -1,4 +1,4 @@
-#include "AI_Opponent.h"
+#include "ai_opponent.h"
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
