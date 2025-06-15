@@ -1,2 +1,8 @@
 .vscode
 *.exe
+# CMake
+build/
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+Makefile
