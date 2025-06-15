@@ -62,7 +62,7 @@ enable_testing()
 # Add test source files
 set(TEST_SOURCES
     tests/test_board.cpp
-   
+    tests/test_dummy.cpp
 )
 
 add_executable(unit_tests ${TEST_SOURCES})
