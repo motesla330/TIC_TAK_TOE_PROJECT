@@ -17,6 +17,9 @@ set(CMAKE_AUTORCC ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+# ========================
+# Project Sources
+# ========================
 set(PROJECT_SOURCES
     main.cpp
     mainwindow.cpp
@@ -33,7 +36,9 @@ set(PROJECT_SOURCES
     AIAdapter.h
 )
 
-# Main executable (Qt)
+# ========================
+# Main Executable (Qt)
+# ========================
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(tictactoe
         MANUAL_FINALIZATION
@@ -44,3 +49,33 @@ else()
 endif()
 
 target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+# ========================
+# GoogleTest Setup
+# ========================
+# Add GoogleTest (assumes googletest/ is added to your repo root)
+add_subdirectory(googletest)
+
+# Add tests (you will create the tests folder)
+enable_testing()
+
+# Add test source files
+set(TEST_SOURCES
+    tests/test_board.cpp
+   
+)
+
+add_executable(unit_tests ${TEST_SOURCES})
+
+# Link GoogleTest and your project files
+target_link_libraries(unit_tests
+    gtest
+    gtest_main
+    Qt${QT_VERSION_MAJOR}::Widgets
+)
+
+# Include your project's headers if needed
+target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Register test with CTest
+add_test(NAME AllTests COMMAND unit_tests)
