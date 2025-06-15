@@ -53,10 +53,15 @@ target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 # ========================
 # GoogleTest Setup
 # ========================
-# Add GoogleTest (assumes googletest/ is added to your repo root)
-add_subdirectory(build/googletest)
-
-# Add tests (you will create the tests folder)
+# GoogleTest via FetchContent
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/release-1.12.1.zip
+)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+# Add tests 
 enable_testing()
 
 # Add test source files
@@ -67,14 +72,14 @@ set(TEST_SOURCES
 
 add_executable(unit_tests ${TEST_SOURCES})
 
-# Link GoogleTest and your project files
+# Link GoogleTest and project files
 target_link_libraries(unit_tests
     gtest
     gtest_main
     Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-# Include your project's headers if needed
+# Include project's headers if needed
 target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Register test with CTest
