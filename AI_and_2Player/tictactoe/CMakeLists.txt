@@ -54,7 +54,7 @@ target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 # GoogleTest Setup
 # ========================
 # Add GoogleTest (assumes googletest/ is added to your repo root)
-add_subdirectory(googletest)
+add_subdirectory(build/googletest)
 
 # Add tests (you will create the tests folder)
 enable_testing()
