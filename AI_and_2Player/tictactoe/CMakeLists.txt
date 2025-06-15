@@ -1,59 +1,81 @@
-cmake_minimum_required(VERSION 3.14)
-project(TicTacToe)
+cmake_minimum_required(VERSION 3.16)
+project(tictactoe VERSION 0.1 LANGUAGES CXX)
 
+# ========================
+# Core Project Settings
+# ========================
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Qt setup
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+# ========================
+# Qt Configuration
+# ========================
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 
-# Your source files
-set(SOURCES
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+
+# ========================
+# Project Sources
+# ========================
+set(PROJECT_SOURCES
     main.cpp
     mainwindow.cpp
-    Board.cpp
-    gamelogic.cpp
-    historymanager.cpp
-    ai_opponent.cpp
-)
-
-set(HEADERS
     mainwindow.h
+    mainwindow.ui
+    Board.cpp
     Board.h
+    gamelogic.cpp
     gamelogic.h
+    historymanager.cpp
     historymanager.h
+    ai_opponent.cpp
     ai_opponent.h
     AIAdapter.h
 )
 
-# UI file
-set(UIS
-    mainwindow.ui
-)
+# ========================
+# Main Executable (Qt)
+# ========================
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(tictactoe
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+    )
+else()
+    add_executable(tictactoe ${PROJECT_SOURCES})
+endif()
 
-# Add your app
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${UIS})
-target_link_libraries(${PROJECT_NAME} Qt6::Widgets)
+target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-# -------------- GTest Section --------------
-
-# Add GoogleTest
+# ========================
+# GoogleTest Setup
+# ========================
+# Add GoogleTest (assumes googletest/ is added to your repo root)
 add_subdirectory(googletest)
 
-# Create test executable
-add_executable(tests
+# Add tests (you will create the tests folder)
+enable_testing()
+
+# Add test source files
+set(TEST_SOURCES
     tests/test_board.cpp
     tests/test_dummy.cpp
 )
 
-# Link GoogleTest + your source code
-target_link_libraries(tests gtest gtest_main)
+add_executable(unit_tests ${TEST_SOURCES})
 
-# Link your source files to tests (optional if functions/classes are reused)
-target_link_libraries(tests PRIVATE Qt6::Widgets)
+# Link GoogleTest and your project files
+target_link_libraries(unit_tests
+    gtest
+    gtest_main
+    Qt${QT_VERSION_MAJOR}::Widgets
+)
 
-# Enable testing
-enable_testing()
-add_test(NAME AllTests COMMAND tests)
+# Include your project's headers if needed
+target_include_directories(unit_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Register test with CTest
+add_test(NAME AllTests COMMAND unit_tests)
