@@ -67,11 +67,12 @@ enable_testing()
 # List test source files
 set(TEST_SOURCES
     tests/test_gamelogic.cpp
-    # add more test files here
+    tests/test_board.cpp
 )
 
 add_executable(UnitTests ${TEST_SOURCES}
                Board.cpp 
+               gamelogic.cpp
 )
 
 # Include your project headers for testing
