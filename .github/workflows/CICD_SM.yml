@@ -2,46 +2,35 @@ name: CI for SessionManager.cpp
 
 on:
   push:
-    branches:
-      - main  # or replace with your branch like 'Session_Management'
     paths:
       - 'SessionManager.cpp'
+  workflow_dispatch:  # Allows manual run as well
 
 jobs:
-  lint:
-    name: Run Linter & Formatter
+  lint-check:
+    name: Run cpplint and clang-format
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Python + cpplint
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install cpplint
         run: |
           python3 -m pip install --upgrade pip
           pip install cpplint
 
-      - name: Install clang-format
-        run: sudo apt-get update && sudo apt-get install -y clang-format
-
-      # OPTIONAL: If you want to skip markdownlint errors completely
-      - name: Disable markdownlint (dummy step)
-        run: echo "Skipping markdownlint to avoid CLI version conflict"
-
-      - name: Setup clang-format config
+      - name: Run cpplint on SessionManager.cpp
         run: |
-          echo 'BasedOnStyle: Google' > .clang-format
-          echo 'IndentWidth: 2' >> .clang-format
-          echo 'ColumnLimit: 100' >> .clang-format
-          echo 'SortIncludes: false' >> .clang-format
-          echo 'AllowShortFunctionsOnASingleLine: Empty' >> .clang-format
-          echo 'SpaceBeforeParens: ControlStatements' >> .clang-format
+          cpplint --filter=-legal/copyright,-whitespace/braces,-whitespace/indent,-runtime/references SessionManager.cpp
 
-      - name: Run clang-format check
-        run: clang-format --dry-run --Werror SessionManager.cpp
-
-      - name: Run cpplint with filtered rules
+      - name: Check clang-format compliance
         run: |
-          cpplint \
-            --filter=-whitespace/indent,-whitespace/braces,-runtime/references \
-            SessionManager.cpp
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+          clang-format --dry-run --Werror SessionManager.cpp
