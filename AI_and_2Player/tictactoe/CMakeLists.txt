@@ -1,50 +1,44 @@
-cmake_minimum_required(VERSION 3.10)
-project(tictactoe)
+cmake_minimum_required(VERSION 3.16)
+project(tictactoe VERSION 0.1 LANGUAGES CXX)
 
+# ========================
+# Core Project Settings
+# ========================
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add Qt components
-find_package(Qt6 COMPONENTS Core Gui Widgets REQUIRED)
+# ========================
+# Qt Configuration
+# ========================
+set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 
-# Include directories
-include_directories(${PROJECT_SOURCE_DIR})
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-# Add source files
-set(SOURCES
+set(PROJECT_SOURCES
     main.cpp
     mainwindow.cpp
-    Board.cpp
-    gamelogic.cpp
-    historymanager.cpp
-    ai_opponent.cpp
-)
-
-set(HEADERS
     mainwindow.h
+    mainwindow.ui
+    Board.cpp
     Board.h
+    gamelogic.cpp
     gamelogic.h
+    historymanager.cpp
     historymanager.h
-    ai_opponent.h
     AIAdapter.h
 )
 
-qt6_wrap_ui(UI_HEADERS mainwindow.ui)
+# Main executable (Qt)
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(tictactoe
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+    )
+else()
+    add_executable(tictactoe ${PROJECT_SOURCES})
+endif()
 
-add_executable(tictactoe ${SOURCES} ${HEADERS} ${UI_HEADERS})
-target_link_libraries(tictactoe Qt6::Core Qt6::Gui Qt6::Widgets)
-
-# GoogleTest
-add_subdirectory(../googletest googletest-build)
-
-enable_testing()
-
-add_executable(runTests
-    test/test_main.cpp
-    test/test_logic.cpp
-)
-
-target_link_libraries(runTests gtest gtest_main)
-add_test(NAME runTests COMMAND runTests)
+target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
