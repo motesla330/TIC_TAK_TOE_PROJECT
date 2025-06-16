@@ -5,14 +5,14 @@ on:
     branches:
       - Session_Management
     paths:
-      - 'session_manager_test.cpp'
+      - 'SessionManager.cpp'
       - '.clang-format'
       - '**/*.md'      # if you also want to lint markdown on push
   pull_request:
     branches:
       - Session_Management
     paths:
-      - 'session_manager_test.cpp'
+      - 'SessionManager.cpp'
       - '.clang-format'
       - '**/*.md'
 
@@ -37,14 +37,14 @@ jobs:
       - name: Check C++ formatting with clang-format
         # This checks that files are formatted; if not, it errors.
         run: |
-          FILES="session_manager_test.cpp"
+          FILES="SessionManager.cpp"
           for file in $FILES; do
             clang-format --dry-run --Werror $file
           done
 
       - name: Run cpplint on C++ file
         run: |
-          cpplint session_manager_test.cpp
+          cpplint SessionManager.cpp
 
       - name: Run markdownlint on Markdown files
         run: |
