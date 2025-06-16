@@ -70,7 +70,9 @@ set(TEST_SOURCES
     # add more test files here
 )
 
-add_executable(UnitTests ${TEST_SOURCES})
+add_executable
+              (UnitTests ${TEST_SOURCES}
+               Board.cpp )
 
 # Include your project headers for testing
 target_include_directories(UnitTests PRIVATE
