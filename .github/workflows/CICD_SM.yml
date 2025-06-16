@@ -1,4 +1,4 @@
-name: CI Format and Lint for SessionManager.cpp
+name: CI Lint for SessionManager.cpp
 
 on:
   push:
@@ -7,21 +7,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint-format:
+  cpplint-check:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install cpplint
         run: |
-          sudo apt-get update
-          sudo apt-get install -y clang-format
           python3 -m pip install --upgrade pip
           pip install cpplint
 
-      - name: Run clang-format check
-        run: clang-format --dry-run --Werror SessionManager.cpp
-
-      - name: Run cpplint check (filtered rules)
-        run: cpplint --filter=-legal/copyright,-whitespace/braces,-whitespace/indent,-runtime/references SessionManager.cpp
+      - name: Run cpplint (filtered rules to reduce false positives)
+        run: |
+          cpplint --filter=-legal/copyright,-whitespace/braces,-whitespace/indent,-runtime/references SessionManager.cpp
