@@ -1,0 +1,11 @@
+BasedOnStyle: Google
+IndentWidth: 2
+ColumnLimit: 80
+AllowShortFunctionsOnASingleLine: Inline
+DerivePointerAlignment: false
+PointerAlignment: Left
+SpacesInParentheses: false
+SpaceAfterCStyleCast: true
+SortIncludes: true
+IncludeBlocks: Preserve
+BreakBeforeBraces: Attach
