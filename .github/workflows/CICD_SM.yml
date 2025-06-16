@@ -79,3 +79,18 @@ jobs:
         run: |
           echo "Linting Markdown files..."
           markdownlint-cli "**/*.md"
+
+      - name: Auto-fix formatting with clang-format
+        run: |
+          FILES="SessionManager.cpp"
+          for file in $FILES; do
+            if [ -f "$file" ]; then
+              clang-format -i "$file"
+            fi
+          done
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "style: Auto-format using clang-format" || echo "No changes to commit"
+          git push || echo "No changes to push"
+
