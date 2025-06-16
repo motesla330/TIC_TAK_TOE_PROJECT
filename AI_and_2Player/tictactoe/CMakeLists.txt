@@ -68,11 +68,13 @@ enable_testing()
 set(TEST_SOURCES
     tests/test_gamelogic.cpp
     tests/test_board.cpp
+    tests/test_ai_opponent.cpp
 )
 
 add_executable(UnitTests ${TEST_SOURCES}
                Board.cpp 
                gamelogic.cpp
+               ai_opponent.cpp
 )
 
 # Include your project headers for testing
