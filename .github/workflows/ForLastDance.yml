@@ -1,29 +1,29 @@
-name: Lint Check for SessionManagement
+name: CI for SessionManagement
 
 on:
   push:
     paths:
       - 'SessionManagement.cpp'
-      - 'SessionManagement.h'
+      - 'Headers/SessionManagement.h'
 
 jobs:
-  lint:
+  cpplint-check:
     name: Run cpplint
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: Install cpplint
-      run: pip install cpplint
+      - name: Install cpplint
+        run: pip install cpplint
 
-    - name: Run cpplint on SessionManagement files
-      run: |
-        cpplint SessionManagement.cpp
-        cpplint SessionManagement.h
+      - name: Run cpplint on SessionManagement.cpp
+        run: cpplint SessionManagement.cpp
+
+      - name: Run cpplint on Headers/SessionManagement.h
+        run: cpplint Headers/SessionManagement.h
