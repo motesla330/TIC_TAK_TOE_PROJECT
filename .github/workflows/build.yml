@@ -30,9 +30,6 @@ jobs:
         cd AI_and_2Player/tictactoe/build
         ctest || echo "No tests found"
 
-    - name: Pull GoogleTest Submodule
-      run: git submodule update --init --recursive
-
 
 
 
