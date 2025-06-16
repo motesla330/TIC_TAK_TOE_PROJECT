@@ -2,7 +2,7 @@
 #include "ai_opponent.h"
 #include "Board.h"
 
-// Helper to set up a board with a specific layout
+// Helper: Create a 3x3 Board using string layout
 Board createBoard(const std::vector<std::string>& layout) {
     Board b;
     for (int i = 0; i < 3; ++i)
@@ -11,9 +11,9 @@ Board createBoard(const std::vector<std::string>& layout) {
     return b;
 }
 
-// Simulates an empty board
+// Helper: create an empty board
 Board EmptyBoard() {
-    return CreateBoard({
+    return createBoard({
         "___",
         "___",
         "___"
@@ -63,7 +63,7 @@ TEST(AITest, EasyMoveIsValid) {
 }
 
 TEST(AITest, BlocksOpponentWin) {
-    Board board = CreateBoard({
+    Board board = createBoard({
         "OO_",
         "X__",
         "_X_"
@@ -74,7 +74,7 @@ TEST(AITest, BlocksOpponentWin) {
 }
 
 TEST(AITest, MediumPreventsImmediateLossButMayMissFork) {
-    Board board = CreateBoard({
+    Board board = createBoard({
         "O__",
         "_X_",
         "__O"
@@ -87,12 +87,11 @@ TEST(AITest, EasyModeMovesCanVary) {
     Board board = EmptyBoard();
     move m1 = getAIMove(board, EASY, 'X', 'O');
     move m2 = getAIMove(board, EASY, 'X', 'O');
-    // Could be same due to luck, but often not
     EXPECT_FALSE(m1.row == m2.row && m1.col == m2.col);
 }
 
 TEST(AITest, MediumModeSometimesBestOrRandom) {
-    Board board = CreateBoard({
+    Board board = createBoard({
         "OX_",
         "XO_",
         "___"
@@ -108,7 +107,7 @@ TEST(AITest, MediumModeSometimesBestOrRandom) {
 }
 
 TEST(AITest, FullBoardReturnsInvalidMove) {
-    Board board = CreateBoard({
+    Board board = createBoard({
         "XOX",
         "OXO",
         "OXO"
@@ -120,20 +119,20 @@ TEST(AITest, FullBoardReturnsInvalidMove) {
 
 TEST(AIOpponentTest, EasyReturnsValidMove) {
     Board board;
-    auto move = getAIMove(board, EASY, 'x', 'o');
-    ASSERT_GE(move.row, 0);
-    ASSERT_GE(move.col, 0);
-    ASSERT_LT(move.row, 3);
-    ASSERT_LT(move.col, 3);
+    move m = getAIMove(board, EASY, 'x', 'o');
+    ASSERT_GE(m.row, 0);
+    ASSERT_GE(m.col, 0);
+    ASSERT_LT(m.row, 3);
+    ASSERT_LT(m.col, 3);
 }
 
 TEST(AIOpponentTest, MediumReturnsValidMove) {
     Board board;
-    auto move = getAIMove(board, MEDIUM, 'x', 'o');
-    ASSERT_GE(move.row, 0);
-    ASSERT_GE(move.col, 0);
-    ASSERT_LT(move.row, 3);
-    ASSERT_LT(move.col, 3);
+    move m = getAIMove(board, MEDIUM, 'x', 'o');
+    ASSERT_GE(m.row, 0);
+    ASSERT_GE(m.col, 0);
+    ASSERT_LT(m.row, 3);
+    ASSERT_LT(m.col, 3);
 }
 
 TEST(AIOpponentTest, HardFindsWinningMove) {
@@ -142,10 +141,9 @@ TEST(AIOpponentTest, HardFindsWinningMove) {
         "oo_",
         "___"
     });
-    auto move = getAIMove(board, HARD, 'x', 'o');
-    // Winning move should be (0,2)
-    EXPECT_EQ(move.row, 0);
-    EXPECT_EQ(move.col, 2);
+    move m = getAIMove(board, HARD, 'x', 'o');
+    EXPECT_EQ(m.row, 0);
+    EXPECT_EQ(m.col, 2);
 }
 
 TEST(AIOpponentTest, HardBlocksOpponentWin) {
@@ -154,8 +152,7 @@ TEST(AIOpponentTest, HardBlocksOpponentWin) {
         "xx_",
         "___"
     });
-    auto move = getAIMove(board, HARD, 'x', 'o');
-    // AI should block (0,2)
-    EXPECT_EQ(move.row, 0);
-    EXPECT_EQ(move.col, 2);
+    move m = getAIMove(board, HARD, 'x', 'o');
+    EXPECT_EQ(m.row, 0);
+    EXPECT_EQ(m.col, 2);
 }
