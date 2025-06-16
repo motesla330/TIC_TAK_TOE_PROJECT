@@ -55,9 +55,7 @@ class SessionManager {
   }
 
   // Get current time point
-  static TimePoint now() {
-    return std::chrono::system_clock::now();
-  }
+  static TimePoint now() { return std::chrono::system_clock::now(); }
 
   // Compute expiry: now + 5 minutes
   static TimePoint calculate_expiry() {
@@ -66,11 +64,13 @@ class SessionManager {
 
   // Check if expired: now >= ExpireTime
   bool is_expired() const {
-    // If ExpireTime was never set, ExpireTime is epoch (time_point{}), so likely immediately expired.
+    // If ExpireTime was never set, ExpireTime is epoch (time_point{}), so
+    // likely immediately expired.
     return now() >= ExpireTime;
   }
 
-  // Destroy session: clear token and user_id, mark Created_ false, clear ExpireTime
+  // Destroy session: clear token and user_id, mark Created_ false, clear
+  // ExpireTime
   void DestroySession() {
     token_.clear();
     user_id_ = 0;
@@ -79,32 +79,26 @@ class SessionManager {
     ExpireTime_FromDatabase = TimePoint{};
   }
 
-  // Load expiry from “database”: store both ExpireTime_FromDatabase and ExpireTime
+  // Load expiry from “database”: store both ExpireTime_FromDatabase and
+  // ExpireTime
   void SetExpireTimeFromDatabase(TimePoint expirFromDB) {
     ExpireTime_FromDatabase = expirFromDB;
   }
 
   // Getter for ExpireTime
-  TimePoint GetExpireTime() const {
-    return ExpireTime;
-  }
+  TimePoint GetExpireTime() const { return ExpireTime; }
 
   // Getter for session state: whether token was created
-  bool SessionState() const {
-    return Created_;
-  }
+  bool SessionState() const { return Created_; }
 
   // Getter for token
-  std::string GetToken() const {
-    return token_;
-  }
+  std::string GetToken() const { return token_; }
 
   // Getter for user_id
-  unsigned int GetUserId() const {
-    return user_id_;
-  }
+  unsigned int GetUserId() const { return user_id_; }
 
-  // Convenience: start a session with username: generate token, user ID, and set expiry
+  // Convenience: start a session with username: generate token, user ID, and
+  // set expiry
   void StartSession(const std::string &username) {
     GenerateUuidV4();
     GenerateUserId(username);
@@ -112,4 +106,3 @@ class SessionManager {
     Created_ = true;
   }
 };
-
