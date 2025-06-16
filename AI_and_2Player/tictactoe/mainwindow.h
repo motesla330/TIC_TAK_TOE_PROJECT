@@ -7,7 +7,7 @@
 #include "Board.h"
 #include "gamelogic.h"
 #include "historymanager.h"
-#include "AIAdapter.h"
+#include "ai_opponent.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
