@@ -1,64 +1,29 @@
-name: CI for Authentication.cpp
+name: CI for SessionManagement
 
 on:
   push:
     paths:
       - 'Authentication.cpp'
-      - 'src/Authentication.cpp'
-      - 'include/Authentication.h'
-    branches:
-      - main
-      - develop
+      - 'Headers/Authentication.h'
 
 jobs:
-  build_and_test:
+  cpplint-check:
+    name: Run cpplint
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4 # This step has 'uses' - GOOD
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Set up C++ environment (if needed)
-      # Scenario 1: Missing 'run:'
-      # If you had:
-      # - name: Set up C++ environment (if needed)
-      #   # <--- Nothing here, this would cause the error
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-      # FIX: Add 'run:' to execute commands
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential
+      - name: Install cpplint
+        run: pip install cpplint
 
-    - name: Compile Authentication.cpp (example)
-      # Scenario 2: Missing 'run:' (or 'uses:' if you had a custom action)
-      # If you had:
-      # - name: Compile Authentication.cpp (example)
-      #   # <--- Nothing here, this would cause the error
+      - name: Run cpplint on Authentication.cpp
+        run: cpplint Authentication.cpp
 
-      # FIX: Add 'run:' to execute commands
-      run: |
-        g++ Authentication.cpp -o auth_app
-
-    - name: Run tests (example)
-      # Scenario 3: Incorrect Indentation
-      # If 'run:' was indented incorrectly:
-      # - name: Run tests (example)
-      #    run: | # Notice the extra space or incorrect alignment
-      #      ./auth_app --test
-      # This could also lead to the error if GitHub Actions can't parse it as part of the step.
-
-      # FIX: Ensure proper 2-space indentation
-      run: |
-        ./auth_app --test
-
-    - name: Deploy (example - CD part)
-      if: success() && github.ref == 'refs/heads/main'
-      # Scenario 4: Typos
-      # If you wrote 'runs:' instead of 'run:'
-      # runs: |
-      #   echo "Deploying..."
-      # This would also cause the error because 'runs' is not a valid key for a step.
-
-      # FIX: Correct the typo to 'run:'
-      run: |
-        echo "Deploying..."
+      - name: Run cpplint on Headers/Authentication.h
+        run: cpplint Headers/Authentication.h
