@@ -51,3 +51,4 @@ TEST(AIOpponentTest, HardBlocksOpponentWin) {
     // AI should block (0,2)
     EXPECT_EQ(move.row, 0);
     EXPECT_EQ(move.col, 2);
+}
