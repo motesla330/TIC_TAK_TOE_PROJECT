@@ -1,4 +1,4 @@
-name: Lint SessionManager_DUT.cpp
+name: Lint SessionManager_DUT.cpp on Session_Management Branch
 
 on:
   push:
@@ -9,14 +9,15 @@ on:
 
 jobs:
   super-lint:
-    name: Lint SessionManager_DUT.cpp
+    name: Super Linter Check
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run Super-Linter
         uses: github/super-linter@v5.0.0
         env:
-          DEFAULT_BRANCH: Authentication_Checking&Testing
+          DEFAULT_BRANCH: Session_Management
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
