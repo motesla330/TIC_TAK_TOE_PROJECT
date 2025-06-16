@@ -1,4 +1,4 @@
-name: Lint SessionManager on Session_Management Branch
+name: CI – Lint C++ & Markdown on Session_Management Branch
 
 on:
   push:
@@ -6,47 +6,76 @@ on:
       - Session_Management
     paths:
       - 'SessionManager.cpp'
+      - '**/*.md'
       - '.clang-format'
-      - '**/*.md'      # if you also want to lint markdown on push
   pull_request:
     branches:
       - Session_Management
     paths:
       - 'SessionManager.cpp'
-      - '.clang-format'
       - '**/*.md'
+      - '.clang-format'
 
 jobs:
   lint:
-    name: Run clang-format, cpplint, markdownlint
+    name: Lint C++ & Markdown
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python for cpplint
-        run: |
-          python3 -m pip install --upgrade pip
-          pip3 install cpplint markdownlint-cli
-
+      # Install clang-format
       - name: Install clang-format
         run: |
           sudo apt-get update
           sudo apt-get install -y clang-format
 
-      - name: Check C++ formatting with clang-format
-        # This checks that files are formatted; if not, it errors.
+      # Setup Python & install cpplint
+      - name: Setup Python for cpplint
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install cpplint
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install cpplint
+
+      # Setup Node.js & install markdownlint-cli
+      - name: Setup Node.js for markdownlint
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install markdownlint-cli
+        run: |
+          npm install -g markdownlint-cli
+
+      # 1. Check C++ formatting
+      - name: Check formatting with clang-format
         run: |
           FILES="SessionManager.cpp"
           for file in $FILES; do
-            clang-format --dry-run --Werror $file
+            if [ -f "$file" ]; then
+              echo "Checking format: $file"
+              clang-format --dry-run --Werror "$file"
+            fi
           done
 
-      - name: Run cpplint on C++ file
+      # 2. Run cpplint
+      - name: Run cpplint on C++ files
         run: |
-          cpplint SessionManager.cpp
+          FILES="SessionManager.cpp"
+          for file in $FILES; do
+            if [ -f "$file" ]; then
+              echo "Linting: $file"
+              cpplint "$file"
+            fi
+          done
 
-      - name: Run markdownlint on Markdown files
+      # 3. Lint Markdown files
+      - name: Lint Markdown files
         run: |
-          # install markdownlint-cli globally is above; you can customize patterns
-          markdownlint '**/*.md'
+          echo "Linting Markdown files..."
+          markdownlint-cli "**/*.md"
