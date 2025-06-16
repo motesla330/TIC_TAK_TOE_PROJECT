@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
     gamelogic.h
     historymanager.cpp
     historymanager.h
+    ai_opponent.h
+    ai_opponent.cpp
     AIAdapter.h
 )
 
