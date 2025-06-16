@@ -1,14 +1,14 @@
 #ifndef HISTORYMANAGER_H
 #define HISTORYMANAGER_H
-
 #include <vector>
-#include <string>
 #include <ctime>
+
+enum class Player { None, X, O };
 
 struct GameMove {
     int row;
     int col;
-    std::string player;  // Changed from Player to string
+    Player player;
     time_t timestamp;
 };
 
@@ -16,8 +16,8 @@ struct GameHistory {
     int id;
     time_t startTime;
     time_t endTime;
-    std::string startingPlayer;  // Changed from Player to string
-    std::string winner;          // Changed from Player to string
+    Player startingPlayer;
+    Player winner;
     std::vector<GameMove> moves;
 };
 
@@ -25,9 +25,9 @@ class GameHistoryManager {
 public:
     GameHistoryManager();
 
-    void startNewGame(const std::string& startingPlayer);
-    void recordMove(int row, int col, const std::string& player);
-    void endCurrentGame(const std::string& winner);
+    void startNewGame(Player startingPlayer);
+    void recordMove(int row, int col, Player player);
+    void endCurrentGame(Player winner);
     const std::vector<GameHistory>& getHistory() const;
     bool replayGame(int gameId) const;
 

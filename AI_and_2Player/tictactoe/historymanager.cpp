@@ -2,9 +2,9 @@
 #include <iostream>
 
 GameHistoryManager::GameHistoryManager()
-    : nextId(1) {}
+    : nextId(1) {}  // Start from ID = 1
 
-void GameHistoryManager::startNewGame(const std::string& startingPlayer) {
+void GameHistoryManager::startNewGame(Player startingPlayer) {
     currentGame = GameHistory();
     currentGame.id = nextId++;
     currentGame.startTime = std::time(nullptr);
@@ -12,7 +12,7 @@ void GameHistoryManager::startNewGame(const std::string& startingPlayer) {
     currentGame.moves.clear();
 }
 
-void GameHistoryManager::recordMove(int row, int col, const std::string& player) {
+void GameHistoryManager::recordMove(int row, int col, Player player) {
     GameMove move;
     move.row = row;
     move.col = col;
@@ -22,7 +22,7 @@ void GameHistoryManager::recordMove(int row, int col, const std::string& player)
     currentGame.moves.push_back(move);
 }
 
-void GameHistoryManager::endCurrentGame(const std::string& winner) {
+void GameHistoryManager::endCurrentGame(Player winner) {
     currentGame.endTime = std::time(nullptr);
     currentGame.winner = winner;
     history.push_back(currentGame);
@@ -37,11 +37,12 @@ bool GameHistoryManager::replayGame(int gameId) const {
         if (game.id == gameId) {
             std::cout << "Replaying Game ID: " << game.id << "\n";
             std::cout << "Started at: " << std::ctime(&game.startTime);
-            std::cout << "Winner: " << (game.winner.empty() ? "None" : game.winner) << "\n";
+            std::cout << "Winner: " << (game.winner == Player::X ? "X" :
+                                            game.winner == Player::O ? "O" : "None") << "\n";
             for (const auto& move : game.moves) {
-                std::cout << "Player " << move.player
-                          << " moved to (" << move.row << ", " << move.col << ") at "
-                          << std::ctime(&move.timestamp);
+                std::cout << "Player " << (move.player == Player::X ? "X" : "O")
+                << " moved to (" << move.row << ", " << move.col << ") at "
+                << std::ctime(&move.timestamp);
             }
             return true;
         }
