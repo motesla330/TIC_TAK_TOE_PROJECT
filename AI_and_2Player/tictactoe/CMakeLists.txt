@@ -13,11 +13,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC_SEARCH_PATHS "${CMAKE_CURRENT_SOURCE_DIR}")  # Explicitly set UI search path
+set(CMAKE_AUTOUIC_SEARCH_PATHS "${CMAKE_CURRENT_SOURCE_DIR}")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+# ========================
+# Source Files
+# ========================
 set(PROJECT_SOURCES
     main.cpp
     mainwindow.cpp
@@ -34,7 +37,9 @@ set(PROJECT_SOURCES
     AIAdapter.h
 )
 
-# Main executable (Qt)
+# ========================
+# Main Executable
+# ========================
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(tictactoe
         MANUAL_FINALIZATION
@@ -44,10 +49,40 @@ else()
     add_executable(tictactoe ${PROJECT_SOURCES})
 endif()
 
-# Include generated AUTOUIC/AUTOMOC directories
 target_include_directories(tictactoe PRIVATE
     "${CMAKE_CURRENT_BINARY_DIR}"
     "${CMAKE_CURRENT_BINARY_DIR}/tictactoe_autogen/include"
 )
 
 target_link_libraries(tictactoe PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+# ========================
+# Google Test Integration
+# ========================
+# Add GoogleTest as a subdirectory
+add_subdirectory(${CMAKE_SOURCE_DIR}/external/googletest)
+
+enable_testing()
+
+# List test source files
+set(TEST_SOURCES
+    tests/test_gamelogic.cpp
+    # add more test files here
+)
+
+add_executable(UnitTests ${TEST_SOURCES})
+
+# Include your project headers for testing
+target_include_directories(UnitTests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(UnitTests
+    gtest
+    gtest_main
+)
+
+# link with Qt if test Qt-based classes
+# target_link_libraries(UnitTests Qt${QT_VERSION_MAJOR}::Widgets)
+
+add_test(NAME AllTests COMMAND UnitTests)
