@@ -1,8 +1,7 @@
 .vscode
 *.exe
-# CMake
-build/
-CMakeCache.txt
-CMakeFiles/
-*.cmake
-Makefile
+# Build artifacts
+AI_and_2Player/tictactoe/Build/
+
+# VS Code settings
+.vscode/
