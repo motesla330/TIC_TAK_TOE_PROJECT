@@ -1,4 +1,4 @@
-name: CI for SessionManagement
+name: CI for Authentication
 
 on:
   push:
