@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\Game_logic\tictactoe\build\CMakeFiles\5509f576ddca48e9e273153c166b374a\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{2FE4CB02-BBB5-3E1D-864D-21A9C0CBBE83}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
