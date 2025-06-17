@@ -5,9 +5,8 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include "Board.h"
-#include "gamelogic.h"
-#include "historymanager.h"
-#include "ai_opponent.h"
+#include "GameLogic.h"
+#include "HistoryManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,18 +37,6 @@ private:
     void resetGame();
     void updateButton(int row, int col, char symbol);
     void showEndMessage(const QString& message);
-
-    bool vsAI = true;
-    Difficulty aiDifficulty = HARD;
-    char aiPlayer = 'O';
-    bool gameInProgress = false;
-    void setupGameMode();
-    void makeAIMove();
-    void handleAITurn();
-    bool wasCanceled = false;
-    bool isSetupCanceled() const { return wasCanceled; }
-    void setup(); 
 };
-
 
 #endif // MAINWINDOW_H
