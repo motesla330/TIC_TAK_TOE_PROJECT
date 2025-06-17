@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe/build/cmake_install.cmake",
+		"C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe/build/external/googletest/cmake_install.cmake",
+		"C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe/build/external/googletest/googlemock/cmake_install.cmake",
+		"C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe/build/external/googletest/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

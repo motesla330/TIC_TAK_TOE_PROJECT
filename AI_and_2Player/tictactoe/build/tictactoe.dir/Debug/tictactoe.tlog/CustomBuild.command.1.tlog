@@ -1,0 +1,22 @@
+^C:\USERS\PC\ONEDRIVE\DOCUMENTS\GITHUB\TIC_TAK_TOE_PROJECT\AI_AND_2PLAYER\TICTACTOE\BUILD\CMAKEFILES\5B354408022BE7D1566D93E101770C7C\AUTOUIC_(CONFIG).STAMP.RULE
+setlocal
+cd C:\Users\PC\OneDrive\Documents\GitHub\TIC_TAK_TOE_PROJECT\AI_and_2Player\tictactoe\build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\PC\ONEDRIVE\DOCUMENTS\GITHUB\TIC_TAK_TOE_PROJECT\AI_AND_2PLAYER\TICTACTOE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe -BC:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe/build --check-stamp-file C:/Users/PC/OneDrive/Documents/GitHub/TIC_TAK_TOE_PROJECT/AI_and_2Player/tictactoe/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
