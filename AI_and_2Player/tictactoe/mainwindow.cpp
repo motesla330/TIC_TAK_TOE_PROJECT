@@ -6,24 +6,34 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    board(),
-    logic(board) {
+      ui(new Ui::MainWindow),
+      board(),
+      logic(board) {
     ui->setupUi(this);
+}
 
+void MainWindow::setup() {
     // Ask for game mode
     QStringList modes = {"Player vs Player", "Player vs AI"};
     bool ok;
     QString mode = QInputDialog::getItem(this, "Game Mode", "Select mode:", modes, 1, false, &ok);
-    if (ok && mode == "Player vs AI") {
+    if (!ok) {
+        wasCanceled = true;
+        return;
+    }
+
+    if (mode == "Player vs AI") {
         vsAI = true;
         QStringList levels = {"Easy", "Medium", "Hard"};
         QString level = QInputDialog::getItem(this, "AI Difficulty", "Choose level:", levels, 2, false, &ok);
-        if (ok) {
-            if (level == "Easy") aiDifficulty = EASY;
-            else if (level == "Medium") aiDifficulty = MEDIUM;
-            else aiDifficulty = HARD;
+        if (!ok) {
+            wasCanceled = true;
+            return;
         }
+
+        if (level == "Easy") aiDifficulty = EASY;
+        else if (level == "Medium") aiDifficulty = MEDIUM;
+        else aiDifficulty = HARD;
     } else {
         vsAI = false;
     }

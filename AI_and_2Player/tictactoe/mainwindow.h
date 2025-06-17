@@ -46,7 +46,9 @@ private:
     void setupGameMode();
     void makeAIMove();
     void handleAITurn();
-
+    bool wasCanceled = false;
+    bool isSetupCanceled() const { return wasCanceled; }
+    void setup(); 
 };
 
 
