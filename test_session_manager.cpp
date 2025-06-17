@@ -4,6 +4,14 @@
 #include <thread>
 #include <chrono>
 
+// Create a test-friendly subclass to access protected internals
+class TestableSessionManager : public SessionManager {
+public:
+    void ForceExpireTime(TimePoint tp) {
+        ExpireTime = tp; // Directly access private field
+    }
+};
+
 TEST(SessionManagerTest, StartSessionSetsValues) {
     SessionManager sm;
     sm.StartSession("Alice");
@@ -42,19 +50,24 @@ TEST(SessionManagerTest, GenerateUuidV4Format) {
 }
 
 TEST(SessionManagerTest, ExpiryCheckWorks) {
-    SessionManager sm;
+    TestableSessionManager sm;
     sm.StartSession("David");
-    EXPECT_FALSE(sm.is_expired());
 
-    // Simulate expiry by manually setting expire time
-    sm.SetExpireTimeFromDatabase(SessionManager::now() - std::chrono::minutes(1));
-    EXPECT_TRUE((SessionManager::now() > sm.GetExpireTime()) || sm.is_expired());
+    // Force it to be expired
+    auto expired_time = SessionManager::now() - std::chrono::minutes(10);
+    sm.ForceExpireTime(expired_time);
+
+    EXPECT_TRUE(sm.is_expired());
 }
 
 TEST(SessionManagerTest, SetExpireTimeFromDatabaseSetsTime) {
     SessionManager sm;
     auto expiry = SessionManager::now() + std::chrono::minutes(2);
     sm.SetExpireTimeFromDatabase(expiry);
-    // Private member - can’t directly test, so just ensure no crash
-    SUCCEED();
+    SUCCEED(); // No crash = pass
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

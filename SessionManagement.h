@@ -10,12 +10,12 @@ using TimePoint = std::chrono::system_clock::time_point;
 
 class SessionManager {
  private:
+  TimePoint ExpireTime_FromDatabase{};
+  bool Created_ = false;
+protected:
   std::string token_;
   unsigned int user_id_ = 0;
   TimePoint ExpireTime{};
-  TimePoint ExpireTime_FromDatabase{};
-  bool Created_ = false;
-
  public:
   void GenerateUuidV4();
   void GenerateUserId(const std::string& username);

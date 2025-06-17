@@ -1,17 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
-project(SessionManagementProject)
+project(SessionManagementTest)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Add the source directory (current dir)
+# Add main library
 add_library(SessionManagement
     SessionManagement.cpp
 )
 
-# Enable testing
-enable_testing()
-
-# Fetch GoogleTest
+# GoogleTest
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -19,9 +16,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Add test executable
-add_executable(test_runner test_session_manager.cpp)
-target_link_libraries(test_runner SessionManagement gtest_main)
+enable_testing()
 
-include(GoogleTest)
-gtest_discover_tests(test_runner)
+# Test runner
+add_executable(test_runner test_session_manager.cpp)
+# Just use gtest without gtest_main
+target_link_libraries(test_runner
+    SessionManagement
+    gtest
+)
+add_test(NAME SessionTests COMMAND test_runner)
