@@ -18,7 +18,7 @@ enum Difficulty {
     HARD
 };
 
-WIN_PATTERNS[8] = {
+const int WIN_PATTERNS[8] = {
     0b111000000,  // First row (cells 0-2)
     0b000111000,  // Second row (cells 3-5)
     0b000000111,  // Third row (cells 6-8)
