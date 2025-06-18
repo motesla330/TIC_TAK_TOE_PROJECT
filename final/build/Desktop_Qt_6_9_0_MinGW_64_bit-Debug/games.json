@@ -1,0 +1,78 @@
+[
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 00:27:39",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 00:40:45",
+        "winner": "Player"
+    }
+]

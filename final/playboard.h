@@ -1,0 +1,69 @@
+#include"ai_opponent.h"
+#ifndef PLAYBOARD_H
+#define PLAYBOARD_H
+
+#include <QWidget>
+#include"Game.h"
+#include"gamemanager.h"
+
+QT_BEGIN_NAMESPACE
+class QPushButton;
+class QLabel;
+QT_END_NAMESPACE
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class Form;
+}
+QT_END_NAMESPACE
+
+class PlayBoard : public QWidget
+{
+    Q_OBJECT
+
+public:
+    PlayBoard(QWidget *parent = nullptr);
+    ~PlayBoard();
+    void setGameMode(int vsAI, Difficulty difficulty = MEDIUM);
+
+private slots:
+    // Game board button slots
+    void onButton1Clicked();
+    void onButton2Clicked();
+    void onButton3Clicked();
+    void onButton4Clicked();
+    void onButton5Clicked();
+    void onButton6Clicked();
+    void onButton7Clicked();
+    void onButton8Clicked();
+    void onButton9Clicked();
+
+    // Control button slots
+    //void onResetButtonClicked();
+    void onNewGameButtonClicked();
+    void onBackButtonClicked();
+    void  resetallbuttons();
+    void enableallbuttons();
+    void disableallbutton();
+    void saveGameToDatabase();
+    void makeAIMove();
+    void onSessionExpired();
+    void onUserActivity();
+
+protected:
+    bool eventFilter(QObject* obj, QEvent* event) override;
+
+private:
+    Ui::Form *ui;
+    int VsIA;                // 0 = 2-player mode, 1 = AI mode
+    Difficulty aiDifficulty; // AI difficulty level
+    char humanPlayer;        // Human player symbol ('X' or 'O')
+    char aiPlayer;          // AI player symbol ('X' or 'O')
+    // Helper function to connect all signals
+    void connectSignals();
+    void makeMove(int row, int col, QPushButton* button);
+    QPushButton* getButtonAt(int row, int col);
+
+};
+
+#endif // PLAYBOARD_H
