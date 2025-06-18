@@ -20,7 +20,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 # ========================
 # Source Files
 # ========================
-set(PROJECT_SOURCES
+set(APP_SOURCES
     main.cpp
     mainwindow.cpp
     mainwindow.h
@@ -33,6 +33,7 @@ set(PROJECT_SOURCES
     historymanager.h
     ai_opponent.h
     ai_opponent.cpp
+    AIAdapter.h
 )
 
 
