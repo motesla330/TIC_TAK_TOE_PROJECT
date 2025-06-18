@@ -3,10 +3,10 @@ name: CI Lint for C++ files
 on:
   push:
     branches:
-      - final           # Trigger only on pushes to 'final' branch
+      - final           # Only on final branch
     paths:
-      - 'final/**'      # Trigger only if files under final/ are changed
-  workflow_dispatch:     # Manual trigger remains available
+      - 'final/**'      # Only if files in final/ change
+  workflow_dispatch:     # Allow manual trigger
 
 jobs:
   cpplint-check:
@@ -31,7 +31,7 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install cpplint
 
-      - name: Run cpplint on changed C/C++ files under final/
+      - name: Run cpplint on changed C/C++ files under final/ (excluding json.hpp)
         run: |
           if git rev-parse HEAD^ >/dev/null 2>&1; then
             CHANGED=$(git diff --name-only HEAD^ HEAD)
@@ -42,6 +42,10 @@ jobs:
           echo "$CHANGED"
           for file in $CHANGED; do
             case "$file" in
+              final/json.hpp)
+                echo "Skipping cpplint for $file"
+                continue
+                ;;
               final/*.cpp|final/*.cc|final/*.c|final/*.h|final/*.hpp)
                 if [ -f "$file" ]; then
                   echo "Running cpplint on $file"
