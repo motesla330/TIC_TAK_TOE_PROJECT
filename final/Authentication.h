@@ -46,15 +46,16 @@ class Authentication {
   void GetPassword(const std::string &password);
 
   // to ensure that the password entered is correct
-  bool IsHereInterface();
+  bool IsHereInterface() const;
 
   // Validation methods
-  bool FieldsIsValidNew();
-  bool FieldsIsValidOld();
-  bool UsernameIsValid();
-  bool PasswordLongIsValid();
-  bool PasswordComplexityIsValid();
-  bool EmailIsValid();
+    bool FieldsIsValidNew() const;
+    bool FieldsIsValidOld() const;
+    bool UsernameIsValid() const;
+    bool PasswordLongIsValid() const;
+    bool PasswordComplexityIsValid() const;
+    bool EmailIsValid() const;
+    bool EmailIsValid();
 
   // all fields are valid for sign up
   void IsValidForSignUP();
@@ -67,7 +68,7 @@ class Authentication {
 
   // Verification Code: Getting the verification code and make sure that it is
   // equal to the sent one
-  bool IsVerificationCodeValid(const int &inputCode);
+   bool IsVerificationCodeValid(const int& inputCode) const;
 
   // Password Reset: Getting username and email, for verification
   void GetUsernameEmail(const std::string &username, const std::string &email);
