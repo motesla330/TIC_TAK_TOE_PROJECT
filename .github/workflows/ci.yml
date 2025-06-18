@@ -21,13 +21,17 @@ jobs:
         host: 'windows'
         cache: true
 
-    - name: Install MinGW Make
-      shell: powershell
+    - name: Install vcpkg and OpenSSL
       run: |
-        choco install mingw --no-progress
+        git clone https://github.com/microsoft/vcpkg.git
+        .\vcpkg\bootstrap-vcpkg.bat
+        .\vcpkg\vcpkg install openssl:x64-windows
 
     - name: Build with qmake
+      env:
+        INCLUDE: D:\a\TIC_TAK_TOE_PROJECT\TIC_TAK_TOE_PROJECT\vcpkg\installed\x64-windows\include
+        LIB: D:\a\TIC_TAK_TOE_PROJECT\TIC_TAK_TOE_PROJECT\vcpkg\installed\x64-windows\lib
       run: |
         cd final
-        qmake
+        qmake "INCLUDEPATH+=../vcpkg/installed/x64-windows/include" "LIBS+=-L../vcpkg/installed/x64-windows/lib -lssl -lcrypto"
         mingw32-make
