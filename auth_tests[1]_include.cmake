@@ -1,0 +1,5 @@
+if(EXISTS "D:/myGitHub/TIC_TAK_TOE_PROJECT/auth_tests[1]_tests.cmake")
+  include("D:/myGitHub/TIC_TAK_TOE_PROJECT/auth_tests[1]_tests.cmake")
+else()
+  add_test(auth_tests_NOT_BUILT auth_tests_NOT_BUILT)
+endif()
