@@ -5,8 +5,8 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include "Board.h"
-#include "GameLogic.h"
-#include "HistoryManager.h"
+#include "gamelogic.h"
+#include "historymanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
