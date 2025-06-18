@@ -20,11 +20,21 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 # ========================
 # Source Files
 # ========================
-file(GLOB_RECURSE APP_SOURCES
-    "*.cpp"
-    "*.h"
-    "*.ui"
+set(PROJECT_SOURCES
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    Board.cpp
+    Board.h
+    gamelogic.cpp
+    gamelogic.h
+    historymanager.cpp
+    historymanager.h
+    ai_opponent.h
+    ai_opponent.cpp
 )
+
 
 # Filter out test files from app sources
 list(FILTER APP_SOURCES EXCLUDE REGEX "tests/.*")
