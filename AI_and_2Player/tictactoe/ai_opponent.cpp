@@ -33,7 +33,7 @@ int evaluate(char board[3][3]) {
     int opponentMask = getBitmask(board, opponent);
 
     for (int i = 0; i < 8; i++) {
-        int winMask = WINNING_MASKS[i];
+        int winMask = WIN_PATTERNS[i];
         if ((playerMask & winMask) == winMask)
             return +10;
         if ((opponentMask & winMask) == winMask)
@@ -123,7 +123,7 @@ Move getAIMove(Board& boardObj, Difficulty diff, char aiChar, char humanChar) {
         for (int j = 0; j < 3; ++j)
             tempBoard[i][j] = (grid[i][j] == ' ') ? '_' : grid[i][j];
 
-    // Set the symbols used by minimax
+  
     player = aiChar;
     opponent = humanChar;
 
