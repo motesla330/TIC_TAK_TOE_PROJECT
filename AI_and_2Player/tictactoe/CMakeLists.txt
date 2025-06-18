@@ -58,7 +58,7 @@ file(GLOB_RECURSE TEST_SOURCES "tests/*.cpp")
 add_executable(runTests
     ${TEST_SOURCES}
     Board.cpp
-    GameLogic.cpp
+    gamelogic.cpp
     historymanager.cpp
     ai_opponent.cpp
 )
