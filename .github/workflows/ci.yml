@@ -19,7 +19,6 @@ jobs:
         target: 'desktop'
         arch: 'win64_mingw'
         host: 'windows'
-        modules: 'qtbase qttools qtdeclarative'
         cache: true
 
     - name: Install MinGW Make
