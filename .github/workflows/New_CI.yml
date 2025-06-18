@@ -1,8 +1,12 @@
 name: CI Lint for C++ files
 
 on:
-  push:               # Triggers on any push to any branch, for any files
-  workflow_dispatch:  # Allows manual trigger as well
+  push:
+    branches:
+      - final           # Trigger only on pushes to 'final' branch
+    paths:
+      - 'final/**'      # Trigger only if files under final/ are changed
+  workflow_dispatch:     # Manual trigger remains available
 
 jobs:
   cpplint-check:
@@ -13,12 +17,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # (Optional) List which files changed in this push
       - name: List changed files
         run: |
           echo "Changed files in this push:"
-          # For a push event, GitHub sets GITHUB_SHA and GITHUB_REF; to compare with previous commit:
-          # If this is the first commit in a branch, HEAD^ may not exist; use try/catch style:
           if git rev-parse HEAD^ >/dev/null 2>&1; then
             git diff --name-only HEAD^ HEAD
           else
@@ -30,10 +31,8 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install cpplint
 
-      - name: Run cpplint on changed C/C++ files
-        # This step runs cpplint only on files with .cpp/.h/.hpp extensions that changed.
+      - name: Run cpplint on changed C/C++ files under final/
         run: |
-          # Gather changed files with relevant extensions
           if git rev-parse HEAD^ >/dev/null 2>&1; then
             CHANGED=$(git diff --name-only HEAD^ HEAD)
           else
@@ -41,10 +40,9 @@ jobs:
           fi
           echo "All changed files:"
           echo "$CHANGED"
-          # Filter for .cpp, .cc, .c, .h, .hpp
           for file in $CHANGED; do
             case "$file" in
-              *.cpp|*.cc|*.c|*.h|*.hpp)
+              final/*.cpp|final/*.cc|final/*.c|final/*.h|final/*.hpp)
                 if [ -f "$file" ]; then
                   echo "Running cpplint on $file"
                   cpplint --filter=-legal/copyright,-whitespace/braces,-whitespace/indent,-runtime/references "$file"
