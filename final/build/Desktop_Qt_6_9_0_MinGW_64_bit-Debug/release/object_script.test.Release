@@ -1,5 +1,6 @@
 release/Authentication.o
 release/Board.o
+release/SessionManagement.o
 release/ai_opponent.o
 release/codeverification.o
 release/game.o
@@ -13,8 +14,12 @@ release/main.o
 release/mainwindow.o
 release/playboard.o
 release/playermanager.o
+release/replayboard.o
+release/sessiontimer.o
 release/moc_codeverification.o
 release/moc_home.o
 release/moc_login.o
 release/moc_mainwindow.o
 release/moc_playboard.o
+release/moc_replayboard.o
+release/moc_sessiontimer.o

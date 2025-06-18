@@ -52,8 +52,6 @@ public:
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QRadioButton *radioButton_3;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout_3;
     QMenuBar *menubar;
     QMenu *menuGame;
     QMenu *menuView;
@@ -498,12 +496,6 @@ public:
         radioButton_3->setSizePolicy(sizePolicy1);
         radioButton_3->setFont(font1);
         radioButton_3->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
-        verticalLayoutWidget = new QWidget(centralwidget);
-        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(50, 159, 791, 361));
-        verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         Home->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Home);
         menubar->setObjectName("menubar");

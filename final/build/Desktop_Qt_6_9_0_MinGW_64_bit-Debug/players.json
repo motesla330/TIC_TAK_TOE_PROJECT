@@ -1,14 +1,21 @@
 {
-    "AI": {
+    "": {
         "email": "",
-        "losses": 2,
+        "losses": 0,
         "password": "",
         "ties": 0,
         "wins": 0
     },
+    "AI": {
+        "email": "",
+        "losses": 2,
+        "password": "",
+        "ties": 1,
+        "wins": 0
+    },
     "Player": {
         "email": "",
-        "losses": 0,
+        "losses": 1,
         "password": "",
         "ties": 0,
         "wins": 2
@@ -31,8 +38,8 @@
         "email": "mahmoudismailkn@gmail.com",
         "losses": 0,
         "password": "4ca8f53032efdc7c9a297260e8f0f83583d01f0e9f4e83ae891160d6aa22149c",
-        "ties": 0,
-        "wins": 0
+        "ties": 1,
+        "wins": 1
     },
     "mohamed12": {
         "email": "mohamed_ahmed@ieeecusb.org",
