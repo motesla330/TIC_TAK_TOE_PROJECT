@@ -1,0 +1,34 @@
+name: Qt CI Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.9.0'
+        target: 'desktop'
+        arch: 'win64_mingw'
+        host: 'windows'
+        modules: 'qtbase qttools qtdeclarative'
+        cache: true
+
+    - name: Install MinGW Make
+      shell: powershell
+      run: |
+        choco install mingw --no-progress
+
+    - name: Build with qmake
+      run: |
+        cd final
+        qmake
+        mingw32-make
