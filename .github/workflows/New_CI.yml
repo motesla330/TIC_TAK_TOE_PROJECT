@@ -1,0 +1,56 @@
+name: CI Lint for C++ files
+
+on:
+  push:               # Triggers on any push to any branch, for any files
+  workflow_dispatch:  # Allows manual trigger as well
+
+jobs:
+  cpplint-check:
+    name: CPPLint Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # (Optional) List which files changed in this push
+      - name: List changed files
+        run: |
+          echo "Changed files in this push:"
+          # For a push event, GitHub sets GITHUB_SHA and GITHUB_REF; to compare with previous commit:
+          # If this is the first commit in a branch, HEAD^ may not exist; use try/catch style:
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            git diff --name-only HEAD^ HEAD
+          else
+            git ls-tree --name-only -r HEAD
+          fi
+
+      - name: Set up Python and install cpplint
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install cpplint
+
+      - name: Run cpplint on changed C/C++ files
+        # This step runs cpplint only on files with .cpp/.h/.hpp extensions that changed.
+        run: |
+          # Gather changed files with relevant extensions
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            CHANGED=$(git diff --name-only HEAD^ HEAD)
+          else
+            CHANGED=$(git ls-tree --name-only -r HEAD)
+          fi
+          echo "All changed files:"
+          echo "$CHANGED"
+          # Filter for .cpp, .cc, .c, .h, .hpp
+          for file in $CHANGED; do
+            case "$file" in
+              *.cpp|*.cc|*.c|*.h|*.hpp)
+                if [ -f "$file" ]; then
+                  echo "Running cpplint on $file"
+                  cpplint --filter=-legal/copyright,-whitespace/braces,-whitespace/indent,-runtime/references "$file"
+                fi
+                ;;
+              *)
+                ;;
+            esac
+          done
