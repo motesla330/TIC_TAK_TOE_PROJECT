@@ -68,3 +68,6 @@ LIBS += -L"C:/Program Files/OpenSSL-Win64/lib/VC/x64/MD" -lcrypto -lssl
 
 DISTFILES += \
     payload.json
+
+INCLUDEPATH += ../vcpkg/installed/x64-windows/include
+LIBS += -L../vcpkg/installed/x64-windows/lib -lssl -lcrypto
