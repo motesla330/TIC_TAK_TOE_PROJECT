@@ -1,12 +1,13 @@
+// Copyright 2025 <MahmoudIsmail>
+
 #include <QApplication>
-#include "login.h"
+#include "final/login.h"
 
-int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
+int main(int argc, char *argv[]) {
+  QApplication app(argc, argv);
 
-    Login loginWindow;
-    loginWindow.show();
+  Login loginWindow;
+  loginWindow.show();
 
-    return app.exec();
+  return app.exec();
 }

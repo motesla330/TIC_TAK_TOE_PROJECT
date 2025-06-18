@@ -1,12 +1,14 @@
-// PlayerManager.h
-#ifndef PLAYER_MANAGER_H
-#define PLAYER_MANAGER_H
+// Copyright 2025 MahmoudIsmail
+
+#ifndef FINAL_PLAYERMANAGER_H_
+#define FINAL_PLAYERMANAGER_H_
 
 #include <unordered_map>
 #include <string>
 #include <vector>
-#include "json.hpp"
-#include "Game.h"
+
+#include "final/Game.h"
+#include "final/json.hpp"
 
 using json = nlohmann::json;
 
@@ -20,13 +22,12 @@ struct PlayerBD {
 };
 
 class PlayerManager {
-private:
+ private:
     std::string playerFile;
     std::unordered_map<std::string, PlayerBD> players;
 
-public:
-
-    PlayerManager(const std::string& filename);
+ public:
+    explicit PlayerManager(const std::string& filename);
     void loadPlayers();
     void savePlayers();
     void updateStats(const Game& game);
@@ -34,11 +35,14 @@ public:
     bool deletePlayerHistory(const std::string& name);
     bool deletePlayer(const std::string& name);
     PlayerBD* searchPlayer(const std::string& name);
-    bool searchAndAssert(const std::string& name, const std::string& password);
-    bool findAndCheckEmail(const std::string& name, const std::string& email);
-    bool getStoredPasswordIfUserExists(const std::string& name, std::string& hashedPasswordOut);
+    bool searchAndAssert(const std::string& name,
+                         const std::string& password);
+    bool findAndCheckEmail(const std::string& name,
+                           const std::string& email);
+    bool getStoredPasswordIfUserExists(const std::string& name,
+                                       std::string& hashedPasswordOut);
     bool playerExists(const std::string& name) const;
     void saveStats(const std::string& filename) const;
 };
 
-#endif
+#endif  // FINAL_PLAYERMANAGER_H_

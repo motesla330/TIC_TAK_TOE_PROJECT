@@ -1,3 +1,5 @@
+// Copyright 2025 <MennaAssem>
+
 #include "gamelogic.h"
 
 // Winning patterns (8 possible ways to win in 3x3 Tic-Tac-Toe)

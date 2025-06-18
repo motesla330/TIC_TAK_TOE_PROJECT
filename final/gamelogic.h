@@ -1,11 +1,13 @@
-#ifndef GAMELOGIC_H
-#define GAMELOGIC_H
+// Copyright 2025 <MennaAssem>
 
-#include "Board.h"
+#ifndef FINAL_GAMELOGIC_H_
+#define FINAL_GAMELOGIC_H_
+
+#include "final/Board.h"
 
 class GameLogic {
-public:
-    GameLogic(Board& boardRef);
+ public:
+    explicit GameLogic(Board &boardRef);
 
     bool checkWin(char symbol) const;
     bool isDraw() const;
@@ -13,8 +15,8 @@ public:
     char getCurrentPlayer() const;
     void reset();
 
-private:
-    Board& board;
+ private:
+    Board &board;
     char currentPlayer;
 
     // Bitmask representations
@@ -25,4 +27,4 @@ private:
     static const int WIN_PATTERNS[8];
 };
 
-#endif // GAMELOGIC_H
+#endif  // FINAL_GAMELOGIC_H_

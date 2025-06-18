@@ -1,5 +1,7 @@
-#ifndef CODEVERIFICATION_H
-#define CODEVERIFICATION_H
+// Copyright 2025 <Tesla>
+
+#ifndef FINAL_CODEVERIFICATION_H_
+#define FINAL_CODEVERIFICATION_H_
 
 #include <QDialog>
 #include <QTimer>
@@ -11,12 +13,11 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class CodeVerification; }
 QT_END_NAMESPACE
 
-class CodeVerification : public QDialog
-{
+class CodeVerification : public QDialog {
     Q_OBJECT
 
-public:
-    CodeVerification(QWidget *parent = nullptr);
+ public:
+    explicit CodeVerification(QWidget *parent = nullptr);
     ~CodeVerification();
 
     // Public methods
@@ -24,19 +25,19 @@ public:
     QString getVerificationCode() const;
     bool isCodeVerified() const;
 
-signals:
+ signals:
     void codeVerified(const QString &code);
     void verificationCancelled();
     void resendCodeRequested(const QString &email);
 
-private slots:
+ private slots:
     void onVerifyButtonClicked();
     void onResendButtonClicked();
     void onCancelButtonClicked();
     void onCodeTextChanged(const QString &text);
     void onResendTimerTimeout();
 
-private:
+ private:
     Ui::CodeVerification *ui;
 
     // Member variables
@@ -58,4 +59,4 @@ private:
     void resetForm();
 };
 
-#endif // CODEVERIFICATION_H
+#endif  // FINAL_CODEVERIFICATION_H_

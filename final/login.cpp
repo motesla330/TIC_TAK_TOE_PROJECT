@@ -1,136 +1,129 @@
-#include "login.h"
-#include "ui_login.h"
-#include "home.h"
-#include <QMessageBox>
-#include "Authentication.h"
-#include<memory.h>
-#include<string>
-#include"playermanager.h"
-#include "codeverification.h"
-#include"globals.h"
-#include"sessiontimer.h"
-using namespace std;
-//PlayerManager *PLAYM =new PlayerManager("players.json");
-//Authentication*AUTH =new Authentication();
+// Copyright 2025 <MahmoudIsmail>
 
 
- using TimePoint = std::chrono::system_clock::time_point;
+
+#include <memory>
+#include <string>
+
+#include "final/login.h"
+#include "final/home.h"
+#include "final/Authentication.h"
+#include "final/playermanager.h"
+#include "final/codeverification.h"
+#include "final/globals.h"
+#include "final/sessiontimer.h"
+
+using std::string;
+using std::nullptr_t;
+using TimePoint = std::chrono::system_clock::time_point;
 
 Login::Login(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::Login)
-{
-    ui->setupUi(this);
-    setWindowTitle("Login");
-
-
+    : QDialog(parent), ui(new Ui::Login) {
+  ui->setupUi(this);
+  setWindowTitle("Login");
 }
 
-Login::~Login()
-{
-    delete ui;
+Login::~Login() {
+  delete ui;
 }
 
-void Login::on_loginButton_clicked()
-{
-    GAMEM->loadGames();
-    PLAYM->loadPlayers();
+void Login::on_loginButton_clicked() {
+  GAMEM->loadGames();
+  PLAYM->loadPlayers();
 
-    QString username = ui->usernameLineEdit->text();
-    QString password = ui->passwordLineEdit->text();
+  QString username = ui->usernameLineEdit->text();
+  QString password = ui->passwordLineEdit->text();
 
+  string *name = nullptr;
+  string hashedpasswordfromdb;
+  bool ishere = false;
 
-    string * name  =nullptr;
-    string hashedpasswordfromdb;
-    bool ishere =false;
+  AUTH->SignIn(username.toStdString(), password.toStdString());
+  AUTH->PushSignedInData(name);  // NAME POINT UN
 
-    AUTH->SignIn(username.toStdString(),password.toStdString());
-    AUTH->PushSignedInData(name);//NAME POINT UN
+  ishere = PLAYM->getStoredPasswordIfUserExists(*name, hashedpasswordfromdb);
 
-    ishere=PLAYM->getStoredPasswordIfUserExists(*name,hashedpasswordfromdb);
+  if (!ishere) {
+    QMessageBox::information(this, "Warning",
+         "No existing account with this username!");
+    return;
+  }
 
-    if(!ishere){
-         QMessageBox::information(this, "waring", "no exsting account with this username!");
-        return;
-    }
-    AUTH->IsHereConnect(hashedpasswordfromdb,ishere);
+  AUTH->IsHereConnect(hashedpasswordfromdb, ishere);
 
-    if(AUTH->IsHereInterface()) {
-        QMessageBox::information(this, "Success", "Login successful!");
-          SessionTimer::instance().updateTimeout(6000);
+  if (AUTH->IsHereInterface()) {
+    QMessageBox::information(this, "Success", "Login successful!");
+    SessionTimer::instance().updateTimeout(6000);
 
-
-        // If you have a home window
-         Home *homeWindow = new Home();
-         homeWindow->show();
-         this->close();
-
-
-        //  checkTimeLeft(homeWindow);
-
-    } else {
-        QMessageBox::warning(this, "Error", "Invalid  password!");
-
-        ui->passwordLineEdit->clear();
-    }
-
-}
-
-void Login::on_exitButton_clicked()
-{
+    Home *homeWindow = new Home();
+    homeWindow->show();
     this->close();
+  } else {
+    QMessageBox::warning(this, "Error", "Invalid password!");
+    ui->passwordLineEdit->clear();
+  }
 }
 
-// Optional: Add signup functionality
-void Login::on_signupButton_clicked()
-{
-    PLAYM->loadPlayers();
-    QString name = ui->nameLineEdit->text();
-    QString email = ui->emailLineEdit->text();
-    QString password = ui->newPasswordLineEdit->text();
-    QString confirmPassword = ui->confirmPasswordLineEdit->text();
+void Login::on_exitButton_clicked() {
+  this->close();
+}
 
-    AUTH->SignUp(name.toStdString(),password.toStdString(),email.toStdString());
+void Login::on_signupButton_clicked() {
+  PLAYM->loadPlayers();
 
-    if(!AUTH->FieldsIsValidNew()){
-         QMessageBox::information(this, "WARING", "Some filed are empty, please chack it !");
-        return;
-    }
+  QString name = ui->nameLineEdit->text();
+  QString email = ui->emailLineEdit->text();
+  QString password = ui->newPasswordLineEdit->text();
+  QString confirmPassword = ui->confirmPasswordLineEdit->text();
 
-    if (!AUTH->UsernameIsValid()){
-         QMessageBox::information(this, "WARING", "Useranme is short, please try longer one !");
-         return;
-    }
-    if (PLAYM->playerExists(name.toStdString())){
-        QMessageBox::information(this, "WARING", "Useranme is already taken ");
-        return;
-    }
+  AUTH->SignUp(name.toStdString(), password.toStdString(), email.toStdString());
 
-    if(!AUTH->PasswordLongIsValid()){
-         QMessageBox::information(this, "WARING", "Your password is short, please try longer one!");
-        ui->passwordLineEdit->clear();
-        ui->newPasswordLineEdit->clear();
-         return;
-    }
-    if (password!=confirmPassword){
+  if (!AUTH->FieldsIsValidNew()) {
+    QMessageBox::information(this, "Warning",
+         "Some fields are empty, please check!");
+    return;
+  }
 
-        QMessageBox::information(this, "WARING", "Not mached password !");
-        return;
-    }
+  if (!AUTH->UsernameIsValid()) {
+    QMessageBox::information(this, "Warning",
+         "Username is too short, try a longer one!");
+    return;
+  }
 
-    if(!AUTH->PasswordComplexityIsValid()){
-        QMessageBox::information(this, "WARING", "password must contain an upper case, lower case, spcial charachter, numbers !");
-        return;
-    }
+  if (PLAYM->playerExists(name.toStdString())) {
+    QMessageBox::information(this, "Warning",
+         "Username is already taken.");
+    return;
+  }
 
-    if(!AUTH->EmailIsValid()){
-        QMessageBox::information(this, "WARING", "Invalid email!");
-     return;
-    }
-    //AUTH->VerificationMail();
-    AUTH->VerificationMailSMTP();
+  if (!AUTH->PasswordLongIsValid()) {
+    QMessageBox::information(this, "Warning",
+         "Password is too short!");
+    ui->passwordLineEdit->clear();
+    ui->newPasswordLineEdit->clear();
+    return;
+  }
 
-    CodeVerification *codepage =new CodeVerification;
-    codepage->show();
+  if (password != confirmPassword) {
+    QMessageBox::information(this, "Warning", "Passwords do not match!");
+    return;
+  }
 
+  if (!AUTH->PasswordComplexityIsValid()) {
+    QMessageBox::information(this,
+        "Warning",
+        "Password must contain an uppercase letter, "
+        "lowercase letter, special character, and numbers.");
+    return;
+  }
+
+  if (!AUTH->EmailIsValid()) {
+    QMessageBox::information(this, "Warning", "Invalid email!");
+    return;
+  }
+
+  AUTH->VerificationMailSMTP();
+
+  CodeVerification *codepage = new CodeVerification;
+  codepage->show();
 }

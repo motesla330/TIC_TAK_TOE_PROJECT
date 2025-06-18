@@ -1,3 +1,5 @@
+// Copyright 2025 <MennaAssem>
+
 #include "Board.h"
 
 Board::Board() {

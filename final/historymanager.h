@@ -1,5 +1,6 @@
-#ifndef HISTORYMANAGER_H
-#define HISTORYMANAGER_H
+// Copyright 2025 <MahmoudIsmail>
+#ifndef FINAL_HISTORYMANAGER_H_
+#define FINAL_HISTORYMANAGER_H_
 
 #include <vector>
 #include <string>
@@ -22,7 +23,7 @@ struct GameHistory {
 };
 
 class GameHistoryManager {
-public:
+ public:  // Indented correctly (+1 from class)
     GameHistoryManager();
 
     void startNewGame(const std::string& startingPlayer);
@@ -31,10 +32,10 @@ public:
     const std::vector<GameHistory>& getHistory() const;
     bool replayGame(int gameId) const;
 
-private:
+ private:  // Indented correctly (+1 from class)
     int nextId;
     GameHistory currentGame;
     std::vector<GameHistory> history;
 };
 
-#endif // GAMEHISTORYMANAGER_H
+#endif  // FINAL_HISTORYMANAGER_H_

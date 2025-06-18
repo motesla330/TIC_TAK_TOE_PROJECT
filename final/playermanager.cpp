@@ -1,10 +1,14 @@
+// Copyright 2025 MahmoudIsmail
 
-// PlayerManager.cpp
-#include "PlayerManager.h"
 #include <fstream>
 #include <iostream>
+#include <string>               // [build/include_what_you_use]
+#include <unordered_map>        // [build/include_what_you_use]
 
-PlayerManager::PlayerManager(const std::string& filename) : playerFile(filename) {}
+#include "final/playermanager.h"
+
+PlayerManager::PlayerManager(const std::string& filename)
+    : playerFile(filename) {}
 
 void PlayerManager::loadPlayers() {
     std::ifstream in(playerFile);
@@ -57,7 +61,7 @@ void PlayerManager::updateStats(const Game& game) {
         players[game.getPlayer2()].wins++;
         players[game.getPlayer1()].losses++;
     }
-  //  saveStats("players.json") ;
+    // saveStats("players.json");
 }
 
 std::unordered_map<std::string, PlayerBD>& PlayerManager::getPlayers() {
@@ -88,7 +92,8 @@ PlayerBD* PlayerManager::searchPlayer(const std::string& name) {
     return nullptr;
 }
 
-bool PlayerManager::searchAndAssert(const std::string& name, const std::string& password) {
+bool PlayerManager::searchAndAssert(const std::string& name,
+                                    const std::string& password) {
     auto it = players.find(name);
     if (it != players.end()) {
         return it->second.password == password;
@@ -96,48 +101,54 @@ bool PlayerManager::searchAndAssert(const std::string& name, const std::string& 
     return false;
 }
 
-bool PlayerManager::findAndCheckEmail(const std::string& name, const std::string& email) {
+bool PlayerManager::findAndCheckEmail(const std::string& name,
+                                      const std::string& email) {
     auto it = players.find(name);
     if (it != players.end()) {
         return it->second.email == email;
     }
     return false;
 }
-bool PlayerManager::getStoredPasswordIfUserExists(const std::string& name, std::string& hashedPasswordOut) {
+
+bool PlayerManager::getStoredPasswordIfUserExists(const std::string& name,
+      std::string& hashedPasswordOut) {
     auto it = players.find(name);
     if (it != players.end()) {
-        hashedPasswordOut = it->second.password;  // Assuming password is already hashed
+        hashedPasswordOut =
+        it->second.password;  // Assuming password is already hashed
         return true;
     }
     return false;
 }
+
 bool PlayerManager::playerExists(const std::string& name) const {
     return players.find(name) != players.end();
 }
 
-
-void PlayerManager::saveStats(const std::string& filename) const
-{
+void PlayerManager::saveStats(const std::string& filename) const {
     json out = json::object();
     for (const auto& [name, bd] : players) {
         json entry;
-        entry["wins"]       = bd.wins;
-        entry["losses"]     = bd.losses;
-        entry["ties"]       = bd.ties;
+        entry["wins"] = bd.wins;
+        entry["losses"] = bd.losses;
+        entry["ties"] = bd.ties;
+
         // If you want to save full history, you can serialize each Game:
         json hist = json::array();
         for (auto& g : bd.gameHistory) {
             hist.push_back({
-                {"player1",  g.getPlayer1()},
-                {"player2",  g.getPlayer2()},
-                {"winner",   g.getWinner()},
-                {"timestamp",g.getTimestamp()}
-                // …and moves if you need them…
+                {"player1", g.getPlayer1()},
+                {"player2", g.getPlayer2()},
+                {"winner", g.getWinner()},
+                {"timestamp", g.getTimestamp()}
+                // ...and moves if you need them...
             });
         }
+
         entry["history"] = hist;
         out[name] = entry;
     }
+
     std::ofstream fout(filename);
     fout << out.dump(4);
 }

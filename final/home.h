@@ -1,60 +1,53 @@
-#ifndef HOME_H
-#define HOME_H
+// Copyright 2025 <MahmoudIsmail>
+
+#ifndef FINAL_HOME_H_
+#define FINAL_HOME_H_
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include "json.hpp"
+#include <QModelIndex>
+#include "final/json.hpp"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class Home; }
+namespace Ui {
+class Home;
+}
 QT_END_NAMESPACE
 
+class Home : public QMainWindow {
+  Q_OBJECT
 
+ public:
+  explicit Home(QWidget *parent = nullptr);
+  void addGameToHistory(const QString &winner,
+                        const QString &date,
+                        const QString &moves,
+                        const QString &opponent);
+  ~Home();
 
-class Home : public QMainWindow
-{
-    Q_OBJECT
+ private slots:
+  void on_aiButton_clicked();
+  void on_friendButton_clicked();
+  void on_pushButton_clicked();  // Logout button
+  void onGameHistoryDoubleClicked(const QModelIndex &index);
+  void onSessionExpired();       // Timer expired
+  void onUserActivity();         // Any user activity resets timer
+  void onGameHistoryTableClicked(int row, int column);  // Replay on click
 
-public:
+ private:
+  Ui::Home *ui;
+  void setupGameHistoryTable();
+  void loadGameHistoryFromDatabase();
+  void addGameToHistoryTable(const nlohmann::json &gameData);
+  void updatePlayerStats();
+  void loadUserData();
+  void calculateStatsFromGames();
+  void saveUserData();
+  void updateWelcomeLabel();
+  void updateStatsLabel();
 
-    Home(QWidget *parent = nullptr);
-    void addGameToHistory(const QString &winner, const QString &date, const QString &moves, const QString &opponent);
-   // void scaleWidgets();
-    //void scaleWidget(QWidget *widget, double scaleX, double scaleY);
-    // In home.h - WRONG:
-
-   // signals:
-   // void gameSelectedForReplay(const QString& timestamp);
-    // In home.h - CORRECT:
-
-  // static void checkTimeLeft();
-
-    ~Home();
-
-private slots:
-    //void on_logoutButton_clicked();
-    void on_aiButton_clicked();
-    void on_friendButton_clicked();
-    void on_pushButton_clicked();// logout button
-    void onGameHistoryDoubleClicked(const QModelIndex &index);
-    //timer
-    void onSessionExpired();
-    void onUserActivity();
-    //click on table
-  void onGameHistoryTableClicked(int row, int column);
-private:
-    Ui::Home *ui;
-    void setupGameHistoryTable();
-    void loadGameHistoryFromDatabase();
-    void addGameToHistoryTable(const nlohmann::json& gameData);
-    void updatePlayerStats();
-    void loadUserData();
-    void calculateStatsFromGames();
-    void saveUserData();
-    void updateWelcomeLabel();
-    void updateStatsLabel();
-protected:
-    bool eventFilter(QObject* obj, QEvent* event) override;
+ protected:
+  bool eventFilter(QObject *obj, QEvent *event) override;
 };
 
-#endif // HOME_H
+#endif  // FINAL_HOME_H_

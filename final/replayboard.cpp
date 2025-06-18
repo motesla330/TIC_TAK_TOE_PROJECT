@@ -1,28 +1,30 @@
-#include "replayboard.h"
-#include"home.h"
-#include"gamemanager.h"
-#include"globals.h"
-#include <chrono>
-#include <thread>
+// Copyright 2025 MahmoudIsmail
+
 #include <QThread>
 #include <QTimer>
 
-ReplayBoard::ReplayBoard(QWidget *parent)
-    : QWidget(parent)
-{
+#include <vector>
+#include <chrono>
+#include <thread>
+
+#include "final/replayboard.h"
+#include "final/home.h"
+#include "final/gamemanager.h"
+#include "final/globals.h"
+
+ReplayBoard::ReplayBoard(QWidget *parent) : QWidget(parent) {
     ui.setupUi(this);
 
     // Connect back button signal
-    connect(ui.replayBackButton, &QPushButton::clicked, this, &ReplayBoard::onBackButtonClicked);
-    connect(ui.pushButton, &QPushButton::clicked, this, &ReplayBoard::onstartButtonCliced);
+    connect(ui.replayBackButton, &QPushButton::clicked,
+            this, &ReplayBoard::onBackButtonClicked);
+    connect(ui.pushButton, &QPushButton::clicked,
+            this, &ReplayBoard::onstartButtonCliced);
 }
 
-ReplayBoard::~ReplayBoard()
-{
-}
+ReplayBoard::~ReplayBoard() {}
 
-void ReplayBoard::setButtonText(int row, int col, const QString& text)
-{
+void ReplayBoard::setButtonText(int row, int col, const QString& text) {
     QPushButton* button = nullptr;
 
     if (row == 0 && col == 0) button = ui.replayBtn_0_0;
@@ -35,28 +37,26 @@ void ReplayBoard::setButtonText(int row, int col, const QString& text)
     else if (row == 2 && col == 1) button = ui.replayBtn_2_1;
     else if (row == 2 && col == 2) button = ui.replayBtn_2_2;
 
-         button->setText(text);
+    button->setText(text);
 
     // Only set red color for 'O' or 'o'
     if (text == 'O' || text == 'o') {
         button->setStyleSheet("color: red;");
     } else {
-        button->setStyleSheet("color: blue"); // Reset to default style
+        button->setStyleSheet("color: blue;");
     }
-
 }
 
-void ReplayBoard::onBackButtonClicked()
-{
-    Home *homeWindow = new Home();
+void ReplayBoard::onBackButtonClicked() {
+    Home* homeWindow = new Home();
     homeWindow->show();
     this->close();
 }
 
-void ReplayBoard::view()
-{
+void ReplayBoard::view() {
     // Get moves using global indexforgames
-    std::vector<std::tuple<char, int, int>> moves = GAMEM->replayGameByIndex(indexforgames);
+    std::vector<std::tuple<char, int, int>> moves =
+        GAMEM->replayGameByIndex(indexforgames);
 
     // Clear the board first
     clearBoard();
@@ -72,8 +72,7 @@ void ReplayBoard::view()
     }
 }
 
-void ReplayBoard::clearBoard()
-{
+void ReplayBoard::clearBoard() {
     // Clear all buttons
     setButtonText(0, 0, "");
     setButtonText(0, 1, "");
@@ -86,7 +85,6 @@ void ReplayBoard::clearBoard()
     setButtonText(2, 2, "");
 }
 
-void ReplayBoard::onstartButtonCliced()
-{
+void ReplayBoard::onstartButtonCliced() {
     view();
 }

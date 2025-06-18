@@ -1,10 +1,11 @@
-#include "SessionTimer.h"
+// Copyright 2025 MahmoudIsmail
+
+#include "final/sessiontimer.h"
 
 SessionTimer::SessionTimer()
-    : timeoutMs_(60000) // Default timeout: 1 minute = 60000 ms
-{
+    : timeoutMs_(60000) {
     timer_ = new QTimer(this);
-    timer_->setSingleShot(true); // Fire only once
+    timer_->setSingleShot(true);  // Fire only once
     connect(timer_, &QTimer::timeout, this, &SessionTimer::sessionExpired);
 }
 
@@ -14,12 +15,12 @@ SessionTimer& SessionTimer::instance() {
 }
 
 void SessionTimer::start() {
-    timer_->start(timeoutMs_); // Start with current timeout
+    timer_->start(timeoutMs_);  // Start with current timeout
 }
 
 void SessionTimer::reset() {
     if (timer_->isActive()) {
-        timer_->stop(); // Restart timer cleanly
+        timer_->stop();  // Restart timer cleanly
     }
     timer_->start(timeoutMs_);
 }
@@ -38,5 +39,6 @@ int SessionTimer::currentTimeout() const {
 }
 
 TimePoint SessionTimer::timeoutAt() const {
-    return std::chrono::system_clock::now() + std::chrono::milliseconds(timeoutMs_);
+    return std::chrono::system_clock::now() +
+           std::chrono::milliseconds(timeoutMs_);
 }

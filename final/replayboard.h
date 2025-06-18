@@ -1,30 +1,32 @@
-#ifndef REPLAYBOARD_H
-#define REPLAYBOARD_H
+// Copyright 2025 MahmoudIsmail
+
+#ifndef FINAL_REPLAYBOARD_H_
+#define FINAL_REPLAYBOARD_H_
 
 #include <QWidget>
-#include "ui_replayboard.h"
+#include <vector>  // For std::vector
 
-class ReplayBoard : public QWidget
-{
+#include "final/ui_replayboard.h"
+
+class ReplayBoard : public QWidget {
     Q_OBJECT
 
-public:
-    ReplayBoard(QWidget *parent = nullptr);
+ public:
+    explicit ReplayBoard(QWidget *parent = nullptr);
     ~ReplayBoard();
-
 
     void setButtonText(int row, int col, const QString& text);
 
-
-private slots:
+ private slots:
     void onBackButtonClicked();
     void onstartButtonCliced();
 
-signals:
+ signals:
     void backToHome();
     void pushButton();
-void playNextMove();
-private:
+    void playNextMove();
+
+ private:
     Ui::ReplayBoardForm ui;
     QTimer* replayTimer;
     std::vector<std::tuple<char, int, int>> moves;
@@ -35,4 +37,4 @@ private:
     void clearBoard();
 };
 
-#endif // REPLAYBOARD_H
+#endif  // FINAL_REPLAYBOARD_H_
