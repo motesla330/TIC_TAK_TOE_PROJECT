@@ -116,7 +116,7 @@ Move findMediumMove(char board[3][3]) {
     return (rand() % 2 == 0) ? findBestMove(board) : findRandomMove(board);
 }
 
-Move getAIMove(Board& boardObj, Difficulty diff, char aiChar, char humanChar) {
+Move getAIMove(Board& boardObj, Difficulty diff) {
     char tempBoard[3][3];
     const auto& grid = boardObj.getBoard();
 

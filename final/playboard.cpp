@@ -218,7 +218,7 @@ void PlayBoard::makeAIMove()
     }
 
     // Get AI move
-    Move aiMove = getAIMove(board, aiDifficulty, aiPlayer, humanPlayer);
+    Move aiMove = getAIMove(board, aiDifficulty);
 
     if (aiMove.row == -1 || aiMove.col == -1) {
         return; // No valid move found

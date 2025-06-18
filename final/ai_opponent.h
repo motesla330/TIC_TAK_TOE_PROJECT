@@ -18,7 +18,6 @@ enum Difficulty {
     HARD
 };
 
-// Updated declaration using Board class
-Move getAIMove(Board& board, Difficulty diff, char aiPlayer, char humanPlayer);
+Move getAIMove(Board& board, Difficulty diff);
 
 #endif // AI_OPPONENT_H
