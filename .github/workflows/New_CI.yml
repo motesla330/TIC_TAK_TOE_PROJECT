@@ -1,58 +1,40 @@
-name: CI Lint for C++ files
+name: Qt CI Build
 
 on:
   push:
-    branches:
-      - final           # Only on final branch
-    paths:
-      - 'final/**'      # Only if files in final/ change
-  workflow_dispatch:     # Allow manual trigger
+  pull_request:
 
 jobs:
-  cpplint-check:
-    name: CPPLint Check
-    runs-on: ubuntu-latest
+  build:
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: List changed files
-        run: |
-          echo "Changed files in this push:"
-          if git rev-parse HEAD^ >/dev/null 2>&1; then
-            git diff --name-only HEAD^ HEAD
-          else
-            git ls-tree --name-only -r HEAD
-          fi
+    - name: Set up Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.9.0'
+        target: 'desktop'
+        arch: 'win64_mingw'
+        host: 'windows'
+        cache: true
 
-      - name: Set up Python and install cpplint
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install cpplint
+    - name: Install vcpkg and OpenSSL
+      run: |
+        git clone https://github.com/microsoft/vcpkg.git
+        .\vcpkg\bootstrap-vcpkg.bat
+        .\vcpkg\vcpkg install openssl:x64-windows
 
-      - name: Run cpplint on changed C/C++ files under final/ (excluding json.hpp)
-        run: |
-          if git rev-parse HEAD^ >/dev/null 2>&1; then
-            CHANGED=$(git diff --name-only HEAD^ HEAD)
-          else
-            CHANGED=$(git ls-tree --name-only -r HEAD)
-          fi
-          echo "All changed files:"
-          echo "$CHANGED"
-          for file in $CHANGED; do
-            case "$file" in
-              final/json.hpp)
-                echo "Skipping cpplint for $file"
-                continue
-                ;;
-              final/*.cpp|final/*.cc|final/*.c|final/*.h|final/*.hpp)
-                if [ -f "$file" ]; then
-                  echo "Running cpplint on $file"
-                  cpplint --filter=-legal/copyright,-whitespace/braces,-whitespace/indent,-runtime/references "$file"
-                fi
-                ;;
-              *)
-                ;;
-            esac
-          done
+    - name: Debug .pro file presence
+      run: dir final
+
+    - name: Build with qmake
+      env:
+        INCLUDE: D:\a\TIC_TAK_TOE_PROJECT\TIC_TAK_TOE_PROJECT\vcpkg\installed\x64-windows\include
+        LIB: D:\a\TIC_TAK_TOE_PROJECT\TIC_TAK_TOE_PROJECT\vcpkg\installed\x64-windows\lib
+      run: |
+        cd final
+        qmake final.pro "INCLUDEPATH+=../vcpkg/installed/x64-windows/include" "LIBS+=-L../vcpkg/installed/x64-windows/lib -lssl -lcrypto"
+        mingw32-make
