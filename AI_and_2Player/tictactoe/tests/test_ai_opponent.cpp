@@ -10,7 +10,7 @@ Board createBoard(const std::vector<std::string>& layout) {
             b.setCell(i, j, layout[i][j]);
     return b;
 }
-
+//Checks that the AI (in Easy mode) returns a move within board bounds (0–2 for both row and column).
 TEST(AIOpponentTest, EasyReturnsValidMove) {
     Board board;
     auto move = getAIMove(board, EASY, 'x', 'o');
@@ -20,6 +20,7 @@ TEST(AIOpponentTest, EasyReturnsValidMove) {
     ASSERT_LT(move.col, 3);
 }
 
+//Checks that the AI (in Medium mode) returns a move within valid board bounds.
 TEST(AIOpponentTest, MediumReturnsValidMove) {
     Board board;
     auto move = getAIMove(board, MEDIUM, 'x', 'o');
@@ -29,6 +30,7 @@ TEST(AIOpponentTest, MediumReturnsValidMove) {
     ASSERT_LT(move.col, 3);
 }
 
+//Ensures the AI (in Hard mode) detects a winning opportunity and picks the correct move to win the game.
 TEST(AIOpponentTest, HardFindsWinningMove) {
     Board board = createBoard({
         "xx_",
@@ -41,6 +43,7 @@ TEST(AIOpponentTest, HardFindsWinningMove) {
     EXPECT_EQ(move.col, 2);
 }
 
+//Ensures the AI (in Hard mode) blocks the opponent’s immediate winning move.
 TEST(AIOpponentTest, HardBlocksOpponentWin) {
     Board board = createBoard({
         "oo_",
