@@ -49,13 +49,12 @@ class Authentication {
   bool IsHereInterface() const;
 
   // Validation methods
-    bool FieldsIsValidNew() const;
-    bool FieldsIsValidOld() const;
-    bool UsernameIsValid() const;
-    bool PasswordLongIsValid() const;
-    bool PasswordComplexityIsValid() const;
-    bool EmailIsValid() const;
-    bool EmailIsValid();
+  bool FieldsIsValidNew() const ;
+  bool FieldsIsValidOld() const ;
+  bool UsernameIsValid() const ;
+  bool PasswordLongIsValid() const ;
+  bool PasswordComplexityIsValid() const ;
+  bool EmailIsValid() const ;
 
   // all fields are valid for sign up
   void IsValidForSignUP();
@@ -68,7 +67,7 @@ class Authentication {
 
   // Verification Code: Getting the verification code and make sure that it is
   // equal to the sent one
-   bool IsVerificationCodeValid(const int& inputCode) const;
+  bool IsVerificationCodeValid(const int &inputCode) const;
 
   // Password Reset: Getting username and email, for verification
   void GetUsernameEmail(const std::string &username, const std::string &email);
@@ -86,10 +85,10 @@ class Authentication {
   void PushNewPassword(std::string *&newHashedpassword, std::string *&username);
 
   // from tesla
-  bool SendEmailPowerShell();
+  /*bool SendEmailPowerShell() const;
   bool SendEmailCurl();
   bool SendEmailPython();
-  void VerificationMailSMTP();
+  void VerificationMailSMTP() const;*/
 };
 
 // Utility function for JSON string escaping

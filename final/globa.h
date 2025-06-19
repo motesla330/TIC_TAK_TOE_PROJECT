@@ -1,7 +1,7 @@
 // Copyright 2025 MahmoudIsmail
 
-#ifndef FINAL_GLOBALS_H_
-#define FINAL_GLOBALS_H_
+#ifndef FINAL_GLOBA_H_
+#define FINAL_GLOBA_H_
 
 #include "final/Authentication.h"
 #include "final/playermanager.h"
@@ -16,4 +16,4 @@ extern GameManager* GAMEM;
 extern SessionManager* SM;
 extern int indexforgames;  // Global index for replay feature
 
-#endif  // FINAL_GLOBALS_H_
+#endif  // FINAL_GLOBA_H_

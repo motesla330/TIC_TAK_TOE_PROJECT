@@ -45,6 +45,7 @@ HEADERS += \
     playermanager.h \
     replayboard.h \
     sessiontimer.h
+    
 
 FORMS += \
     codeverification.ui \
@@ -61,7 +62,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 # Adjust paths based on your installation directory
 INCLUDEPATH += "C:/Program Files/OpenSSL-Win64/include"
-LIBS += -L"C:/Program Files/OpenSSL-Win64/lib/VC/x64/MD" -lcrypto -lssl
+LIBS += -L"F:\Data Structure Project\TIC_TAK_TOE_PROJECT\final\OpenSSL-Win64\lib" -lcrypto -lssl
 
 # For runtime, ensure DLLs are accessible
 # Either copy DLLs to your output directory or add to PATH

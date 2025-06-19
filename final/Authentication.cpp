@@ -3,8 +3,6 @@
 #include "Authentication.h"
 
 #include <openssl/sha.h>
-#include <QDialog>
-#include <QMessageBox>
 
 #include <cstdio>      // For snprintf
 #include <cstdlib>     // For system()

@@ -8,7 +8,6 @@
 #include <QModelIndex>
 #include "final/json.hpp"
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Home;
