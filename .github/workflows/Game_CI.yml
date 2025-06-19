@@ -3,8 +3,8 @@ name: CI for Authentication
 on:
   push:
     paths:
-      - 'Game.cpp'
-      - 'Headers/Game.h'
+      - 'game.cpp'
+      - 'Headers/game.h'
 
 jobs:
   cpplint-check:
@@ -22,8 +22,8 @@ jobs:
       - name: Install cpplint
         run: pip install cpplint
 
-      - name: Run cpplint on Game.cpp
-        run: cpplint Game.cpp
+      - name: Run cpplint on game.cpp
+        run: cpplint game.cpp
 
-      - name: Run cpplint on Headers/Game.h
-        run: cpplint Headers/Game.h
+      - name: Run cpplint on Headers/game.h
+        run: cpplint Headers/game.h
