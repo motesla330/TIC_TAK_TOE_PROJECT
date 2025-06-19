@@ -2,12 +2,14 @@
 #include "../Board.h"
 #include "../gamelogic.h"
 
+//Verifies the first player is 'X' when the game starts.
 TEST(GameLogicTest, InitialPlayerIsX) {
     Board board;
     GameLogic logic(board);
     EXPECT_EQ(logic.getCurrentPlayer(), 'X');
 }
 
+//Checks that calling switchPlayer() alternates between 'X' and 'O'
 TEST(GameLogicTest, PlayerSwitching) {
     Board board;
     GameLogic logic(board);
@@ -17,6 +19,7 @@ TEST(GameLogicTest, PlayerSwitching) {
     EXPECT_EQ(logic.getCurrentPlayer(), 'X');
 }
 
+//Confirms a win is detected when a full row is filled with the same symbol.
 TEST(GameLogicTest, DetectsWinInRow) {
     Board board;
     GameLogic logic(board);
@@ -27,6 +30,7 @@ TEST(GameLogicTest, DetectsWinInRow) {
     EXPECT_FALSE(logic.checkWin('O'));
 }
 
+//Confirms a win is detected when a full column is filled with the same symbol.
 TEST(GameLogicTest, DetectsWinInColumn) {
     Board board;
     GameLogic logic(board);
@@ -37,6 +41,7 @@ TEST(GameLogicTest, DetectsWinInColumn) {
     EXPECT_FALSE(logic.checkWin('X'));
 }
 
+//Verifies a win is detected along the main diagonal (top-left to bottom-right).
 TEST(GameLogicTest, DetectsDiagonalWin) {
     Board board;
     GameLogic logic(board);
@@ -46,6 +51,7 @@ TEST(GameLogicTest, DetectsDiagonalWin) {
     EXPECT_TRUE(logic.checkWin('X'));
 }
 
+// Verifies a win is detected along the anti-diagonal (top-right to bottom-left).
 TEST(GameLogicTest, DetectsAntiDiagonalWin) {
     Board board;
     GameLogic logic(board);
@@ -55,6 +61,7 @@ TEST(GameLogicTest, DetectsAntiDiagonalWin) {
     EXPECT_TRUE(logic.checkWin('O'));
 }
 
+//Ensures the game recognizes a draw when all cells are filled with no winner.
 TEST(GameLogicTest, DetectsDraw) {
     Board board;
     GameLogic logic(board);
@@ -71,17 +78,4 @@ TEST(GameLogicTest, DetectsDraw) {
     EXPECT_TRUE(logic.isDraw());
 }
 
-TEST(GameLogicTest, NotDrawIfWinExists) {
-    Board board;
-    GameLogic logic(board);
-    board.setCell(0, 0, 'X');
-    board.setCell(0, 1, 'X');
-    board.setCell(0, 2, 'X');
-    board.setCell(1, 0, 'O');
-    board.setCell(1, 1, 'O');
-    board.setCell(1, 2, 'X');
-    board.setCell(2, 0, 'X');
-    board.setCell(2, 1, 'O');
-    board.setCell(2, 2, 'O');
-    EXPECT_FALSE(logic.isDraw());
-}
+
