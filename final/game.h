@@ -6,7 +6,7 @@
 #include <queue>
 #include <string>
 #include <ctime>
-#include "final/json.hpp"
+#include "json.hpp"
 
 struct move {
     std::string player;

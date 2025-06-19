@@ -6,8 +6,8 @@
 #include <vector>
 #include <tuple>
 
-#include "final/gamemanager.h"
-#include "final/json.hpp"
+#include "gamemanager.h"
+#include "json.hpp"
 
 GameManager::GameManager(const std::string &file, PlayerManager &manager)
     : gameFile(file), playerManager(manager) {}

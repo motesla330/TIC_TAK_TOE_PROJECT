@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QModelIndex>
-#include "final/json.hpp"
+#include "json.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
