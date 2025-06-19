@@ -1,10 +1,10 @@
-name: CI for gamemanager
+name: CI for playermanager
 
 on:
   push:
     paths:
-      - 'gamemanager.cpp'
-      - 'Headers/gamemanager.h'
+      - 'playermanager.cpp'
+      - 'Headers/playermanager.h'
 
 jobs:
   cpplint-check:
@@ -22,8 +22,8 @@ jobs:
       - name: Install cpplint
         run: pip install cpplint
 
-      - name: Run cpplint on gamemanager.cpp
+      - name: Run cpplint on playermanager.cpp
         run: cpplint game.cpp
 
-      - name: Run cpplint on Headers/gamemanager.h
-        run: cpplint Headers/gamemanager.h
+      - name: Run cpplint on Headers/playermanager.h
+        run: cpplint Headers/playermanager.h
