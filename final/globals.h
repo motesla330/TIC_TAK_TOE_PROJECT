@@ -3,10 +3,10 @@
 #ifndef FINAL_GLOBALS_H_
 #define FINAL_GLOBALS_H_
 
-#include "Authentication.h"
-#include "playermanager.h"
-#include "gamemanager.h"
-#include "SessionManagement.h"
+#include "final/Authentication.h"
+#include "final/playermanager.h"
+#include "final/gamemanager.h"
+#include "final/SessionManagement.h"
 
 extern PlayerManager* PLAYM;
 extern Authentication* AUTH;

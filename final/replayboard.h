@@ -6,7 +6,7 @@
 #include <QWidget>
 #include <vector>  // For std::vector
 
-#include "ui_replayboard.h"
+#include "final/ui_replayboard.h"
 
 class ReplayBoard : public QWidget {
     Q_OBJECT

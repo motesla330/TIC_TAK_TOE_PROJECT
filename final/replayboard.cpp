@@ -7,10 +7,10 @@
 #include <chrono>
 #include <thread>
 
-#include "replayboard.h"
-#include "home.h"
-#include "gamemanager.h"
-#include "globals.h"
+#include "final/replayboard.h"
+#include "final/home.h"
+#include "final/gamemanager.h"
+#include "final/globals.h"
 
 ReplayBoard::ReplayBoard(QWidget *parent) : QWidget(parent) {
     ui.setupUi(this);

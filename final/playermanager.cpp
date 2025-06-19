@@ -5,7 +5,7 @@
 #include <string>               // [build/include_what_you_use]
 #include <unordered_map>        // [build/include_what_you_use]
 
-#include "playermanager.h"
+#include "final/playermanager.h"
 
 PlayerManager::PlayerManager(const std::string& filename)
     : playerFile(filename) {}

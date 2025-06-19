@@ -5,13 +5,13 @@
 #include <memory>
 #include <string>
 
-#include "login.h"
-#include "home.h"
-#include "Authentication.h"
-#include "playermanager.h"
-#include "codeverification.h"
-#include "globals.h"
-#include "sessiontimer.h"
+#include "final/login.h"
+#include "final/home.h"
+#include "final/Authentication.h"
+#include "final/playermanager.h"
+#include "final/codeverification.h"
+#include "final/globals.h"
+#include "final/sessiontimer.h"
 
 using std::string;
 using std::nullptr_t;

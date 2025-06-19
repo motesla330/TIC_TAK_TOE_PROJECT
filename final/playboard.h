@@ -4,9 +4,9 @@
 #define FINAL_PLAYBOARD_H_
 
 #include <QWidget>
-#include "ai_opponent.h"
-#include "gme.h"
-#include "gamemanager.h"
+#include "final/ai_opponent.h"
+#include "final/Game.h"
+#include "final/gamemanager.h"
 
 QT_BEGIN_NAMESPACE
 class QPushButton;

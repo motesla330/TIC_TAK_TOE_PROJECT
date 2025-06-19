@@ -4,8 +4,8 @@
 #include <string>   // For std::string
 #include <queue>    // For std::queue
 
-#include "game.h"
-#include "globals.h"
+#include "final/game.h"
+#include "final/globals.h"
 
 Game::Game(const std::string &p1, const std::string &p2)
     : player1(p1), player2(p2) {

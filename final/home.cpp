@@ -13,14 +13,13 @@
 #include <string>
 #include <chrono>
 #include <json.hpp>
-
-#include "home.h"
-#include "ui_home.h"
-#include "login.h"
-#include "playboard.h"
-#include "globals.h"
-#include "sessiontimer.h"
-#include "replayboard.h"
+#include "final/home.h"
+#include "final/ui_home.h"
+#include "final/login.h"
+#include "final/playboard.h"
+#include "final/globals.h"
+#include "final/sessiontimer.h"
+#include "final/replayboard.h"
 
 using json = nlohmann::json;
 

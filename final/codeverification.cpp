@@ -11,11 +11,11 @@
 #include <string>
 #include <iostream>
 
-#include "codeverification.h"
-#include "ui_codeverification.h"
-#include "Authentication.h"
-#include "globals.h"
-#include "sessiontimer.h"
+#include "final/codeverification.h"
+#include "final/ui_codeverification.h"
+#include "final/Authentication.h"
+#include "final/globals.h"
+#include "final/sessiontimer.h"
 
 CodeVerification::CodeVerification(QWidget *parent)
     : QDialog(parent),
