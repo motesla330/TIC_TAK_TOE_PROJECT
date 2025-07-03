@@ -5,7 +5,7 @@
 #include <vector>     // for std::vector
 #include <iostream>   // for std::cout, std::endl
 
-#include "final/historymanager.h"
+#include "historymanager.h"
 
 GameHistoryManager::GameHistoryManager()
     : nextId(1) {}

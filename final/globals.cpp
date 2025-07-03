@@ -1,6 +1,6 @@
 // Copyright 2025 <MennaAssem>
 
-#include "final/globa.h"
+#include "globa.h"
 
 PlayerManager *PLAYM = new PlayerManager("players.json");
 Authentication *AUTH = new Authentication();

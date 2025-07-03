@@ -1,6 +1,6 @@
 // Copyright 2025 <HebaEmad>
 
-#include "final/ai_opponent.h"
+#include "ai_opponent.h"
 
 #include <algorithm>  // std::max, std::min
 #include <chrono>     // (if needed elsewhere)

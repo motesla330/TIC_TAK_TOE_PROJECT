@@ -5,8 +5,8 @@
 #include <memory>
 #include <string>
 
-#include "final/login.h"
-#include "final/home.h"
+#include "login.h"
+#include "home.h"
 #include "final/Authentication.h"
 #include "final/playermanager.h"
 #include "final/codeverification.h"

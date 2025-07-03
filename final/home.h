@@ -1,12 +1,12 @@
 // Copyright 2025 <MahmoudIsmail>
 
-#ifndef FINAL_HOME_H_
-#define FINAL_HOME_H_
+#ifndef HOME_H_
+#define HOME_H_
 
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QModelIndex>
-#include "final/json.hpp"
+#include "json.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

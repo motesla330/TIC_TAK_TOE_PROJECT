@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#include "final/Game.h"
-#include "final/json.hpp"
+#include "Game.h"
+#include "json.hpp"
 
 using json = nlohmann::json;
 

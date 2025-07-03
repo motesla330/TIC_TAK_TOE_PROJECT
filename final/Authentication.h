@@ -1,7 +1,7 @@
 // Copyright [year] <MahmoudIsmail>
 
-#ifndef FINAL_AUTHENTICATION_H_
-#define FINAL_AUTHENTICATION_H_
+#ifndef AUTHENTICATION_H_
+#define AUTHENTICATION_H_
 
 #include <string>
 

@@ -6,8 +6,8 @@
 #include <vector>  // for std::vector
 #include <tuple>   // for std::tuple
 #include <string>  // for std::string
-#include "final/Game.h"
-#include "final/PlayerManager.h"
+#include "Game.h"
+#include "PlayerManager.h"
 
 class GameManager {
  public:

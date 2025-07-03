@@ -3,8 +3,8 @@
 #ifndef FINAL_GLOBA_H_
 #define FINAL_GLOBA_H_
 
-#include "final/Authentication.h"
-#include "final/playermanager.h"
+#include "Authentication.h"
+#include "playermanager.h"
 #include "final/gamemanager.h"
 #include "final/SessionManagement.h"
 

@@ -3,7 +3,7 @@
 #ifndef FINAL_GAMELOGIC_H_
 #define FINAL_GAMELOGIC_H_
 
-#include "final/Board.h"
+#include "Board.h"
 
 class GameLogic {
  public:
