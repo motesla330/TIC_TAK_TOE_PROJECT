@@ -1,0 +1,1140 @@
+[
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 01:56:04",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 01:56:18",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 01:56:52",
+        "winner": "AI"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 1
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 04:55:18",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 04:55:26",
+        "winner": "AI"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 04:55:34",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 0
+            }
+        ],
+        "player1": "Player",
+        "player2": "AI",
+        "timestamp": "2025-06-17 04:55:44",
+        "winner": "AI"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:07:37",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 1
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:15:39",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:18:11",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:21:38",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:28:56",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:34:21",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:34:53",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:42:12",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 05:55:04",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 06:05:05",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player X",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "Player",
+        "timestamp": "2025-06-17 06:06:00",
+        "winner": "huda20"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "Player",
+        "timestamp": "2025-06-17 06:06:15",
+        "winner": "player2"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player X",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "Player",
+        "timestamp": "2025-06-17 06:06:31",
+        "winner": "huda20"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 06:08:55",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 06:09:10",
+        "winner": "Player"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 06:17:12",
+        "winner": "huda20"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player O",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "Player",
+        "timestamp": "2025-06-17 06:20:00",
+        "winner": "tie"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player O",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "Player X",
+                "row": 0
+            },
+            {
+                "col": 0,
+                "player": "Player O",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "Player X",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player O",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player X",
+                "row": 2
+            },
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 06:20:11",
+        "winner": "huda20"
+    },
+    {
+        "moves": [
+            {
+                "col": 0,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 1
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 0
+            },
+            {
+                "col": 1,
+                "player": "AI",
+                "row": 2
+            },
+            {
+                "col": 1,
+                "player": "Player",
+                "row": 1
+            },
+            {
+                "col": 2,
+                "player": "AI",
+                "row": 0
+            },
+            {
+                "col": 2,
+                "player": "Player",
+                "row": 2
+            }
+        ],
+        "player1": "huda20",
+        "player2": "AI",
+        "timestamp": "2025-06-17 06:20:22",
+        "winner": "huda20"
+    }
+]

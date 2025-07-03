@@ -1,0 +1,30 @@
+{
+    "": {
+        "email": "",
+        "losses": 0,
+        "password": "",
+        "ties": 0,
+        "wins": 0
+    },
+    "AI": {
+        "email": "",
+        "losses": 7,
+        "password": "",
+        "ties": 0,
+        "wins": 23
+    },
+    "Player": {
+        "email": "",
+        "losses": 5,
+        "password": "",
+        "ties": 1,
+        "wins": 5
+    },
+    "huda20": {
+        "email": "hodaehab2005@gmail.com",
+        "losses": 9,
+        "password": "293f0dd0f2ab06cb06ad3782de4fcbdd5bf0cd78597f3a65c539ed4b25046dcd",
+        "ties": 1,
+        "wins": 5
+    }
+}

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Login</class>
+ <widget class="QDialog" name="Login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>475</width>
+    <height>489</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Login</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    /* Main Dialog Styling */
+    QDialog {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                    stop:0 #1e3c72, stop:1 #2a5298);
+        color: #ffffff;
+    }
+    
+    /* Tab Widget */
+    QTabWidget {
+        background: transparent;
+        border: none;
+    }
+    
+    QTabWidget::pane {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        margin-top: 10px;
+    }
+    
+    QTabBar::tab {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 24px;
+        margin-right: 2px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    QTabBar::tab:selected {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #4facfe, stop:1 #00f2fe);
+        color: #ffffff;
+        border-bottom: none;
+    }
+    
+    QTabBar::tab:hover:!selected {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Line Edit Fields */
+    QLineEdit {
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        color: #2c3e50;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 14px;
+        padding: 12px 16px;
+        selection-background-color: #4facfe;
+        selection-color: white;
+    }
+    
+    QLineEdit:focus {
+        border: 2px solid #4facfe;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 0 15px rgba(79, 172, 254, 0.3);
+    }
+    
+    QLineEdit:hover {
+        border: 2px solid rgba(79, 172, 254, 0.5);
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    /* Placeholder text color */
+    QLineEdit::placeholder {
+        color: #7f8c8d;
+        font-style: italic;
+    }
+    
+    /* Professional Buttons */
+    QPushButton {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #4facfe, stop:1 #00f2fe);
+        border: none;
+        border-radius: 12px;
+        color: #ffffff;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 24px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    }
+    
+    QPushButton:hover {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #5fbdff, stop:1 #1af3fe);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+    }
+    
+    QPushButton:pressed {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #3a9bfd, stop:1 #00d9fe);
+        transform: translateY(1px);
+        box-shadow: 0 2px 10px rgba(79, 172, 254, 0.2);
+    }
+    
+    /* Exit Button Special Styling */
+    QPushButton#exitButton {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #ff6b6b, stop:1 #ee5a5a);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+    
+    QPushButton#exitButton:hover {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #ff7979, stop:1 #f56565);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    }
+    
+    QPushButton#exitButton:pressed {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #ff5757, stop:1 #e74c3c);
+        box-shadow: 0 2px 10px rgba(255, 107, 107, 0.2);
+    }
+    
+    /* Sign Up Button Special Styling */
+    QPushButton#signupButton {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #667eea, stop:1 #764ba2);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    QPushButton#signupButton:hover {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #7b8beb, stop:1 #8659b3);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    QPushButton#signupButton:pressed {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                    stop:0 #5a6fd8, stop:1 #6a4191);
+        box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+    }
+   </string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>-4</x>
+     <y>-1</y>
+     <width>481</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::TabPosition::North</enum>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::TabShape::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::TextElideMode::ElideMiddle</enum>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>login</string>
+    </attribute>
+    <widget class="QLineEdit" name="usernameLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>100</y>
+       <width>261</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Enter User Name </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="loginButton">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>240</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <fontweight>DemiBold</fontweight>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>press to login </string>
+     </property>
+     <property name="text">
+      <string>Login </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="passwordLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>160</y>
+       <width>261</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::EchoMode::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Enter Password </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="exitButton">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>310</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <fontweight>DemiBold</fontweight>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>press to exit </string>
+     </property>
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Sign up</string>
+    </attribute>
+    <widget class="QPushButton" name="signupButton">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>350</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <fontweight>DemiBold</fontweight>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>press to sign up</string>
+     </property>
+     <property name="text">
+      <string>Sign Up</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="nameLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>351</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Enter Your Name </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="emailLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>110</y>
+       <width>351</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>Enter Your Email </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="newPasswordLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>170</y>
+       <width>351</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::EchoMode::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Password </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="confirmPasswordLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>230</y>
+       <width>351</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::EchoMode::Password</enum>
+     </property>
+     <property name="placeholderText">
+      <string>Confirm Password </string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

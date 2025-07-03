@@ -1,0 +1,40 @@
+name: Qt CI Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.9.0'
+        target: 'desktop'
+        arch: 'win64_mingw'
+        host: 'windows'
+        cache: true
+
+    - name: Install vcpkg and OpenSSL
+      run: |
+        git clone https://github.com/microsoft/vcpkg.git
+        .\vcpkg\bootstrap-vcpkg.bat
+        .\vcpkg\vcpkg install openssl:x64-windows
+
+    - name: Debug .pro file presence
+      run: dir final
+
+    - name: Build with qmake
+      env:
+        INCLUDE: D:\a\TIC_TAK_TOE_PROJECT\TIC_TAK_TOE_PROJECT\vcpkg\installed\x64-windows\include
+        LIB: D:\a\TIC_TAK_TOE_PROJECT\TIC_TAK_TOE_PROJECT\vcpkg\installed\x64-windows\lib
+      run: |
+        cd final
+        qmake final.pro "INCLUDEPATH+=../vcpkg/installed/x64-windows/include" "LIBS+=-L../vcpkg/installed/x64-windows/lib -lssl -lcrypto"
+        mingw32-make

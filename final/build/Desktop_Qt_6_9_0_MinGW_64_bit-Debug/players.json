@@ -1,0 +1,58 @@
+{
+    "": {
+        "email": "",
+        "losses": 0,
+        "password": "",
+        "ties": 0,
+        "wins": 0
+    },
+    "AI": {
+        "email": "",
+        "losses": 2,
+        "password": "",
+        "ties": 1,
+        "wins": 0
+    },
+    "Player": {
+        "email": "",
+        "losses": 1,
+        "password": "",
+        "ties": 0,
+        "wins": 2
+    },
+    "ahmed": {
+        "email": "ahmed@email.com",
+        "losses": 0,
+        "password": "pass123",
+        "ties": 0,
+        "wins": 0
+    },
+    "kmkmsqkdm": {
+        "email": "mohamed_ahmed@ieeecusb.org",
+        "losses": 0,
+        "password": "4ca8f53032efdc7c9a297260e8f0f83583d01f0e9f4e83ae891160d6aa22149c",
+        "ties": 0,
+        "wins": 0
+    },
+    "mohamed11": {
+        "email": "mahmoudismailkn@gmail.com",
+        "losses": 0,
+        "password": "4ca8f53032efdc7c9a297260e8f0f83583d01f0e9f4e83ae891160d6aa22149c",
+        "ties": 1,
+        "wins": 1
+    },
+    "mohamed12": {
+        "email": "mohamed_ahmed@ieeecusb.org",
+        "losses": 0,
+        "password": "4ca8f53032efdc7c9a297260e8f0f83583d01f0e9f4e83ae891160d6aa22149c",
+        "ties": 0,
+        "wins": 0
+    },
+    "sara": {
+        "email": "sara@email.com",
+        "losses": 0,
+        "password": "b37278ee8ab915320c34334f2ed80013983a0e978aae1cbcce64950f055d6da4",
+        "ties": 0,
+        "wins": 0
+    }
+}
